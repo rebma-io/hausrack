@@ -1,5 +1,7 @@
 # Documentation
 
+![HAUSRACK logo](hausrack-logo.svg){: width=50% }
+
 Welcome to the documentation for the HAUSRACK project.
 This directory houses all the critical documents, from high-level design 
 documents to detailed hardware considerations.
