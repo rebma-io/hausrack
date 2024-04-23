@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "HAUSRACK"
+version = "0.0.0"
+description = "A wildly over-engineered home automation project"
+authors = ["Christopher Petrilli"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs-material = "^9"
+mkdocs-mermaid2-plugin = "^1.1"
+mkdocs-macros-plugin = "^1.0"
+
+mkdocs-rss-plugin = "^1.12"
+
+wireviz = "^0.3"
+wireviz_fences = { git = "git@github.com:petrilli/wireviz_fences.git" }

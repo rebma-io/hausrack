@@ -1,0 +1,91 @@
+# Project information
+site_name: "HAUSRACK"
+site_author: "Christopher Petrilli"
+site_description: "A wildly over-engineered home automation project"
+
+# Configuration
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+  font:
+    text: Fira Sans
+    code: Fira Mono
+  features:
+    - navigation.tabs
+    - header.autohide
+
+# Page Tree
+nav:
+  - Home: README.md
+  - Design: design/README.md
+  - Hardware:
+    - Overview: hardware/README.md
+    - Mechanical: hardware/mechanical.md
+    - Wiring: hardware/wiring.md
+    - Datasheets: hardware/datasheets/README.md
+  - Software: software/README.md
+  - Updates: updates/index.md
+  - Changelog: CHANGELOG.md
+
+# Repository
+repo_url: https://github.com/rebma-io/hausrack
+repo_name: rebma-io/hausrack
+
+# Plugins
+plugins:
+  - search
+  - macros:
+      module_name: macros
+  - mermaid2:
+      javascript: https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
+  
+  - blog:
+      blog_dir: updates
+      post_readtime: true
+  - rss:
+      match_path: updates/posts/.*
+      enabled: !ENV [CI, false]
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags
+  
+
+# Markdown Extensions
+markdown_extensions:
+  - abbr
+  - attr_list
+  - admonition
+  - footnotes
+  - meta
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+        - name: wireviz
+          class: wireviz
+          format: !!python/name:wireviz_fences.fence_wireviz
+  - pymdownx.keys
+  - pymdownx.tasklist:
+      clickable_checkbox: true
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+# Copyright
+copyright: "Copyright 2024 Christopher Petrilli"
