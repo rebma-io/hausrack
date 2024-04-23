@@ -15,4 +15,4 @@ jobs:
       - uses: actions/setup-python@v5
       - run: pip install poetry
       - run: make install
-      - run: mkdocs gh-deploy --force
+      - run: make ghdocs
