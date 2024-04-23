@@ -1055,11 +1055,11 @@ wireviz = "<1.0"
 
 [package.source]
 type = "git"
-url = "git@github.com:petrilli/wireviz_fences.git"
+url = "https://github.com/petrilli/wireviz_fences.git"
 reference = "HEAD"
 resolved_reference = "8ddc8c26a2c783de9a3f7757eb2220848d9e654e"
 
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "848ad5617c3946b843c10e5d06703fdcf6f843a4b4d6d7b7864b3c46df5f9bc1"
+content-hash = "7910bf0382178603ac8bf934ab77d9f41a9d8eeaa5a7daa5c7f889716a12d99d"
