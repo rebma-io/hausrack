@@ -24,5 +24,8 @@ fp-info-cache
 *.dsn
 *.ses
 
+# MkDocs
+site/
+
 # IntelliJ Tools
 .idea/

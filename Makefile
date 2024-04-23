@@ -7,7 +7,7 @@ build:
 	poetry run mkdocs build
 
 ghdocs:
-	poetry run gh-deploy --force
+	poetry run mkdocs gh-deploy --force
 
 serve: build
 	poetry run mkdocs serve
