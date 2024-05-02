@@ -6,7 +6,7 @@ site_description: "A wildly over-engineered home automation project"
 # Configuration
 theme:
   name: material
-  logo: hausrack-logo.svg
+  logo: hausrack-logo.png
   palette:
     scheme: default
     primary: indigo
@@ -46,6 +46,11 @@ plugins:
   - blog:
       blog_dir: updates
       post_readtime: true
+      categories: true
+      categories_allowed:
+        - Project
+        - Hardware
+        - Software
   - rss:
       match_path: updates/posts/.*
       enabled: !ENV [CI, false]

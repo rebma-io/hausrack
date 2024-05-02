@@ -32,3 +32,6 @@ site/
 
 # Python cache
 __pycache__/
+
+# macOS Nonsense
+.DS_Store
