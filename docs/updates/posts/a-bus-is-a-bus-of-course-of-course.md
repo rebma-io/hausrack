@@ -153,3 +153,5 @@ jacks for +12V and test points that can be used to check power and
 signals. I also put all the signals on the silkscreen.
 
 All mechanicals are in alignment with Eurocard and VMEbus standards.
+
+You can find the [KiCad files in GitHub](https://github.com/rebma-io/hausrack/tree/main/hardware/pcb/backplane).
