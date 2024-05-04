@@ -91,6 +91,7 @@ And it is, in fact, rated to 350MHz, far in excess of what's needed.
 The makes the overall wiring looks like this:
 
 ```wireviz
+
 connectors:
     X1:
         pincount: 8
