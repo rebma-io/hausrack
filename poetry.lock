@@ -1035,7 +1035,7 @@ pyyaml = "*"
 
 [[package]]
 name = "wireviz-fences"
-version = "0.1.0"
+version = "0.2.0"
 description = "Top-level package for Wireviz Fences."
 optional = false
 python-versions = ">=3.7,<4"
@@ -1049,7 +1049,7 @@ wireviz = "<1.0"
 type = "git"
 url = "https://github.com/petrilli/wireviz_fences.git"
 reference = "HEAD"
-resolved_reference = "8ddc8c26a2c783de9a3f7757eb2220848d9e654e"
+resolved_reference = "6be67c710f645f359972b4e1752aba86e4ddec9c"
 
 [metadata]
 lock-version = "2.0"
