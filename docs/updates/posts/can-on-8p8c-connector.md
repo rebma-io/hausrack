@@ -48,6 +48,7 @@ make sure CAN was twisted together, and that each of the +12V wires was
 also twisted with a ground.
 
 ```wireviz
+
 connectors:
     X1:
         pincount: 8
