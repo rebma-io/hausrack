@@ -11,6 +11,7 @@ jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
+      - run: sudo apt update && sudo apt install -qy graphviz
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
       - run: pip install poetry
