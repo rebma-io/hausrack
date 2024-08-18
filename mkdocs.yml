@@ -9,7 +9,7 @@ theme:
   logo: hausrack-logo.png
   palette:
     scheme: default
-    primary: indigo
+    primary: black
     accent: indigo
   font:
     text: Fira Sans
@@ -17,6 +17,7 @@ theme:
   features:
     - navigation.tabs
     - header.autohide
+  custom_dir: docs/overrides
 
 # Page Tree
 nav:
@@ -42,7 +43,6 @@ plugins:
       module_name: macros
   - mermaid2:
       javascript: https://unpkg.com/mermaid@10.9.0/dist/mermaid.min.js
-  
   - blog:
       blog_dir: updates
       post_readtime: true
@@ -101,3 +101,8 @@ extra_javascript:
 
 # Copyright
 copyright: "Copyright 2024 Christopher Petrilli"
+
+extra:
+  analytics:
+    property: ZIPCWPRA
+    provider: fathom
