@@ -16,6 +16,8 @@ authors:
     need the structure of a project to keep me focused, and so I'm
     trying to pick back up where I left off.
 
+![A long PCB is inserted into a
+protoboard](img/weact-stm32g474-long.jpg){ width=300 align=right }
 When last we talked, I was talking about a modular base board built
 around an STM32H5, but I realized that there was another alternative ...
 build it around an existing board. So, that's my plan now. This removes
