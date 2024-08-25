@@ -64,7 +64,7 @@ In addition, because the card is fed with 5V from the backplane, we'll
 need a 3.3V LDO regulator, probably a 1117-style in fixed output.
 
 
-### Relay Card
+## Relay Card
 
 The relay card is going to be a bit more "interesting" in a lot of
 ways. Because I want to be able to (potentially) handle mains voltage
@@ -73,7 +73,10 @@ precautions.
 
 The board will have an AC relay ([Omron G2RL-1A-E-ASI
 DC5](https://components.omron.com/us-en/products/relays/G2RL)) driven
-via a [DRDC3105F](https://www.diodes.com/part/view/DRDC3105F/).
+via a [DRDC3105F](https://www.diodes.com/part/view/DRDC3105F/). Power in
+will come via an
+[C13](https://en.wikipedia.org/wiki/IEC_60320#C13/C14_coupler) connector
+and provided out through a NEMA 5-15 receptacle. 
 
 
 ## Physical Debounce
