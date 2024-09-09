@@ -1,0 +1,1229 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A wildly over-engineered home automation project">
+      
+      
+        <meta name="author" content="Christopher Petrilli">
+      
+      
+      
+        <link rel="prev" href="../../03/can-on-8p8c-connectors/">
+      
+      
+        <link rel="next" href="../../14/first-oscillation/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>A Modular Base Board - HAUSRACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Fathom - beautiful, simple website analytics -->
+<script src="https://cdn.usefathom.com/script.js" data-site="ZIPCWPRA" defer></script>
+<!-- / Fathom -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <link rel="alternate" type="application/rss+xml" title="Subscribe to Changes" href="/feed_rss_updated.xml" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-modular-base-board" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="HAUSRACK" class="md-header__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAUSRACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A Modular Base Board
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../design/" class="md-tabs__link">
+        
+  
+    
+  
+  Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software/" class="md-tabs__link">
+        
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../../../../" class="md-tabs__link">
+        
+  
+    
+  
+  Project Updates
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../CHANGELOG/" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="HAUSRACK" class="md-nav__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    HAUSRACK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/mechanical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/wiring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/datasheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datasheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subsystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subsystems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subsystems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-regulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Regulation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stdc-stm32-jtagswd-and-vcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      STDC (STM32 JTAG/SWD and VCP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serial-console-maybe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serial Console (maybe?)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb-connector-maybe" class="md-nav__link">
+    <span class="md-ellipsis">
+      USB Connector (maybe?)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microsd-socket" class="md-nav__link">
+    <span class="md-ellipsis">
+      MicroSD Socket
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connector-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connector Tree
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-connectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Connectors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#esp32-footprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESP32 Footprint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-leds" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status LEDs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Switch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/petrilli.png" alt="Christopher Petrilli">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Christopher Petrilli
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-05-04 00:00:00" class="md-ellipsis">May 4, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/hardware/">Hardware</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              9 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="a-modular-base-board">A Modular Base Board</h1>
+<p>One of the things that really delighted me with the
+<a href="https://github.com/kiu/kha">kha</a> project is the use of a common PCB for
+the rack, and having it designed in such a way as to allow many
+different applications. I decided I wanted to do the same thing, but
+obviously with my own spin on it.</p>
+<h2 id="goals">Goals</h2>
+<p>The design has the following goals:</p>
+<ol>
+<li>A single re-usable PCB that can be used for 90% of the use cases.</li>
+<li>Flexibility in programming and debugging</li>
+<li>Local power regulation that leverages the +5V rail on the backplane.</li>
+<li>Easy ability to change the run-time configuration.</li>
+</ol>
+<h2 id="subsystems">Subsystems</h2>
+<p>I am using the term "subsystem" quite loosely here. Let's think of it
+more as just different distinct parts of the base PCB that can be
+populated as needed, and used as needed. Obviously some, like power,
+will be there all the time, but others may only be present in a small
+number of situations.</p>
+<h3 id="power-regulation">Power Regulation</h3>
+<p>The main power rails of the backplane are +12V and +5V, as is tradition.
+But that's not what "modern" microcontrollers run on. They run on, at
+most, 3.3V (typically spelled "3v3"), and most can run on much lower
+voltage. The STM32H5 series, for example, can run on anything from 1.71
+to 3.6V. To simplify things (noise gets even more fun to deal with as
+the potential drops), we'll run the board's main rail on 3.3V. </p>
+<p>To get from 5V to 3.3V there are two options. First, we can use a linear
+regulator in the form of a low-dropout (LDO) regulator. We could also
+use a local switched mode power supply (SMPS). To choose, I think it's
+worth thinking about two factor: what's the voltage drop, and what's the
+power requirements.</p>
+<p>Since we're going from 5 &rarr; 3.3V, that's only 1.7V, which isn't a
+huge drop, and well within the capabilities of either type of power
+supply. For power, let's look at what the <em>worst case</em> might be for that
+3.3V rail:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Qty</th>
+<th style="text-align: right;">mA/ea</th>
+<th style="text-align: right;">Total</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>STM32H503</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">200</td>
+<td style="text-align: right;">200</td>
+<td>&sum;IV<sub>VDD</sub></td>
+</tr>
+<tr>
+<td>ATA6561</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.35</td>
+<td style="text-align: right;">0.35</td>
+<td>CAN transceiver</td>
+</tr>
+<tr>
+<td>LED</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">320</td>
+<td>Typical I<sub>f</sub></td>
+</tr>
+<tr>
+<td>ESP32-C3-MINI-1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">350</td>
+<td style="text-align: right;">350</td>
+<td>TX 802.11b @ 20.5dBm</td>
+</tr>
+</tbody>
+</table>
+<p>That gets us a total of around 520.35mA for most situations, but 870.35
+with an ESP32 with its WiFi radio lit up. Let's call that 900mA. Note,
+this doesn't include the 5V drive for the CAN transceiver, for example,
+which is typically 50mA when dominant, but is taken directly from the
+backplane rail. Most other STM32 CPU are actually lower &sum;IV<sub>VDD</sub>
+(the maximum current present across all V<sub>DD</sub> pins) by 50-80mA.</p>
+<p><img align="right" alt="Schematic for a very simple LDO circuit with the
+AP2114" src="../../../../img/schematic-ap2114-oem.png" width="240" /></p>
+<p>Since there's not a massive amount of current, the plan is to use an
+<a href="https://www.diodes.com/part/view/AP2114/">AP2114-3.3</a> fixed-output LDO
+regulator. This is a super simple device that requires a very simple
+circuit to implement, as shown to the right, which can deliver 1,000mA
+(1A). The only addition is a tiny voltage divider to drive the EN
+(enable) pin high from the +5V rail. The total cost for the circuit,
+assuming 10 instances of it, is:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th style="text-align: right;">Qty</th>
+<th style="text-align: right;">Unit</th>
+<th style="text-align: right;">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.digikey.com/en/products/detail/diodes-incorporated/AP2114H-3-3TRG1/4470756">AP2114H-3.3</a></td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">$0.332</td>
+<td style="text-align: right;">$0.332</td>
+</tr>
+<tr>
+<td><a href="https://www.digikey.com/en/products/detail/murata-electronics/GRM21BR71C475KE51L/6606095">4.7uF MLCC 0805 capacitor</a></td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$0.104</td>
+<td style="text-align: right;">$0.208</td>
+</tr>
+<tr>
+<td>0603 100mW &plusmn;1% SMD resistor</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">$0.01</td>
+<td style="text-align: right;">$0.02</td>
+</tr>
+</tbody>
+</table>
+<p>That gets us to a whopping $0.56USD for the regulator circuit.</p>
+<p>We do need to think about <a href="https://en.wikipedia.org/wiki/Junction_temperature">junction
+temperature</a>, so
+let's do a quick calculation of the "worst case" of a full 1A of power.</p>
+<div class="arithmatex">\[\begin{align}
+P &amp;= (V_{in} - V_{out}) \times I_{out} + (V_{in} \times I_{Q}) \\
+  &amp;= (5 - 3.3)\times 1 + (5\times 0.065) \\
+  &amp;= 1.7 + 0.325 \\ 
+  &amp;= 2.025\textrm{W}
+\end{align}
+\]</div>
+<p>So the most we might dissipate is 2W at <em>full load</em>. So, what does that
+do to the junction temperature? Let's assume a 40C wost-case ambient
+temperature (T<sub>A</sub>) and a
+<a href="https://en.wikipedia.org/wiki/TO-252">TO-252-2</a> (that's what the H in
+the part number refers to) package.</p>
+<div class="arithmatex">\[\begin{align}
+T_J &amp;= T_A + (\theta_{JA}\times P) \\
+    &amp;= 40 + (35 * 2.025) \\
+    &amp;= 110.875\textrm{C}
+\end{align}
+\]</div>
+<p>The device has a thermal shutdown (T<sub>OTSD</sub>) of 160C, so we are safely
+within the margins of the device. This is before we take into account
+the use of the ground plane as a heat sink off the package tab.</p>
+<h3 id="stdc-stm32-jtagswd-and-vcp">STDC (STM32 JTAG/SWD and VCP)</h3>
+<p><img align="right" alt="Samtec FTSH-107-01-L-DV-K-A connector" src="../../../../img/samtec-ftsh-14pos.jpg" width="150" /></p>
+<p>Every board needs the ability to be programmed and debugged. The
+standard in the STM32 ecosystem is the STDC connector, which provides
+multiple functions simultaneously, and is typically exposed via a 0.500"
+pitch 14-pin connector like the one shown here.</p>
+<p>The pin-out according to
+<a href="https://www.st.com/content/ccc/resource/technical/document/user_manual/group1/99/49/91/b6/b2/3a/46/e5/DM00526767/files/DM00526767.pdf/jcr:content/translations/en.DM00526767.pdf">UM2448</a>
+is:</p>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>Function</th>
+<th>Pin</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>NC</td>
+<td>2</td>
+<td>NC</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VCC</td>
+<td>4</td>
+<td>JTMS/SWDIO</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GND</td>
+<td>6</td>
+<td>JCLK/SWCLK</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GND</td>
+<td>8</td>
+<td>JTDO/SWO</td>
+</tr>
+<tr>
+<td>9</td>
+<td>JTCLK</td>
+<td>10</td>
+<td>JTDI</td>
+</tr>
+<tr>
+<td>11</td>
+<td>GND Detect</td>
+<td>12</td>
+<td>NRST</td>
+</tr>
+<tr>
+<td>13</td>
+<td>VCP_RX</td>
+<td>14</td>
+<td>VCP_TX</td>
+</tr>
+</tbody>
+</table>
+<p>The pins are for JTAG (J pins) or SWD (SW pins), along with the virtual
+communications port (serial port) on the VCP pins.</p>
+<p><img align="left" alt="Tag-Connect TC2070 connector and cable showing the spring-loaded pins
+used" src="../../../../img/tag-connect-tc2070-idc-050.jpg" width="200" /></p>
+<p>Unfortunately, those Samtec connectors <a href="https://www.digikey.com/en/products/detail/samtec-inc/FTSH-107-01-L-DV-K-A/7443623">aren't
+cheap</a>,
+running close to $4USD <em>each</em>. Instead, I'm planning to leverage the
+<a href="https://www.tag-connect.com/">Tag-Connect</a> system, which uses a set of
+spring-loaded pins to touch contacts on the board that don't require a
+dedicated header to be installed. The
+<a href="https://www.tag-connect.com/product/tc2070-idc-050">TC2060-IDC-050</a>
+model fits the STDC use case perfectly.</p>
+<p>For this situation, it's just a special footprint on the PCB. That
+footprint looks something like this:</p>
+<p><img alt="PCB footprint with 14 small circles and 3
+holes" src="../../../../img/tag-connect-tc-2070-footprint.jpg" /></p>
+<p>They're, effectively, free. And, if you use
+<a href="https://en.wikipedia.org/wiki/Electroless_nickel_immersion_gold">ENIG</a>
+finish, <em>very</em> durable.</p>
+<h3 id="serial-console-maybe">Serial Console (maybe?)</h3>
+<p>This is one I'm not completely sure of. There's a "serial port" on the
+VCP part of the STDC header shown above, and this is probably all that's
+needed. Still, I keep thinking maybe I should expose a dedicated serial
+port for ... reasons that I cannot explain, other than "more ports
+better".</p>
+<h3 id="usb-connector-maybe">USB Connector (maybe?)</h3>
+<p>This is also a maybe for me. It's not really clear what the use for the
+connector would be, and it's also unclear if it would make sense for it
+to be either a host or peripheral connector as well. I can imagine there
+being the possibility of an interesting use case of attaching devices to
+the USB bus, however, so I'll likely include one. Whether it'll be a USB
+micro or a USB-C is yet-to-be-determined.</p>
+<h3 id="microsd-socket">MicroSD Socket</h3>
+<p>One thing that I do want to include is a micro SD card connector. This
+will allow for future expansion of both memory, but also potentially
+allowing the SD card to contain the configuration for the board, which
+might allow <em>every</em> board to be flashed with identical firmware.</p>
+<p>This will likely be done with a <a href="https://www.cuidevices.com/product/interconnect/connectors/memory-card-connectors/sd-card-connectors/msd-1-a">CUI MSD-1-A
+connector</a>.</p>
+<h3 id="connector-tree">Connector Tree</h3>
+<p><img align="right" alt="JST PH 4-pin connector" src="../../../../img/jst-b4b-ph-k-s.jpg" width="150" /></p>
+<p>This is the pièce de résistance that I am lifting from the original
+design. The basic gist of it is that you pull GPIO/I2C/SPI signals out
+to something like an 8-pin connector, then you fan it out to 2 smaller
+connectors, and then potentially fan it out further to even smaller
+connectors. This allows you to pick and choose what you need. You don't
+even need to put all the connectors on the board unless you need them,
+saving money further.</p>
+<p>For a connector, I'm using the ubiquitous <a href="https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/ph-connector/">JST
+PH</a>
+that you see everywhere. For example, in one variant, it's used for
+Adafruit's <a href="https://learn.adafruit.com/introducing-adafruit-stemma-qt/what-is-stemma">STEMMA
+connectors</a>.
+It's widely used, distributed, and a very durable connector. </p>
+<h3 id="power-connectors">Power Connectors</h3>
+<p>One of the things that I was thinking of doing is providing a bank of
+power connectors. These could be used to provide 3.3V, 5V, or 12V to
+front-panel devices directly from the board. They don't need to carry a
+lot of current and I want to use a small connector, so I'm thinking of
+using the same JST PH connectors as the signal tree, but in different
+sizes so that hopefully I won't accidentally plug a signal into a 12V
+power source. </p>
+<p>This is an area that I just haven't fully thought through yet. For
+example, the ubiquitous OLED screens need, typically a 5-12V input that
+is then used locally to boost to the drive voltage. EPD (e-ink) screens
+typically leverage 3.3V to feed the driver circuit. I'm not even sure
+there's a real use-case for 12V here, which could simplify things. </p>
+<h3 id="esp32-footprint">ESP32 Footprint</h3>
+<p><img align="left" alt="ESP32 module with castellated
+pins" src="../../../../img/esp32-wroom-module.png" width="150" /></p>
+<p>There are a few use cases where I can imagine wanting to have a WiFi
+"modem" available. To do that, I'm intending to place the necessary pads
+on the PCB for an
+<a href="https://www.espressif.com/sites/default/files/documentation/esp32-c3-mini-1_datasheet_en.pdf">ESP32-C3-WROOM-1</a>
+module. This is a <a href="https://riscv.org">RISC-V</a>-based module. The package
+is only 16x13mm, and includes a PCB antenna. This will likely be against
+the upper edge of the card so that the copper exclusion zone necessary
+for the antenna doesn't interfere with the main function of the board. </p>
+<p>This will be hung off one of the UART channels of the STM32
+microcontroller, and programmed with the <a href="https://github.com/espressif/esp-at">ESP32 AT
+firmware</a>, which presents a full
+TCP/IP stack, with TLS, HTTP, and even MQTT support, over a crazy
+modified <a href="https://en.wikipedia.org/wiki/Hayes_AT_command_set">Hayes</a> <a href="https://docs.espressif.com/projects/esp-at/en/latest/esp32/AT_Command_Set/index.html">AT
+command
+set</a>.
+I believe it maxes out (or maybe just defaults to) 115,200bps, which
+should be fine for most any real application like checking network time
+or web APIs. If that ends up being not enough, there is an SPI interface
+option that can run 10x faster. </p>
+<h3 id="status-leds">Status LEDs</h3>
+<p>Every computer needs blinking lights. This much is indisputable. So
+every board will have a few selection of lights for power rail status,
+MCU status, and maybe CAN bus status. These will likely just be 0603 or
+0805 surface mount LEDs on the PCB itself. There may, however, be a
+front-panel LED that is just a "power good" LED. That would be connected
+to a dedicated connector on the PCB.</p>
+<h3 id="reset-switch">Reset Switch</h3>
+<p><img align="right" alt="Panasonic EVQ-P7A01P tactile SMD
+switch" src="../../../../img/panasonic-evq-p7a01p.jpg" width="150" /></p>
+<p>Finally, every computer needs a physical reset switch. In this case,
+tied to the NRST pin on the controller. When this gets pulled low, the
+processor goes into system reset. The plan is to use these small
+surface-mount tactile switches at the <em>very front</em> of the PCB that will
+be able to be pressed via a small rod (paperclip, naturally) through a
+small hole in the front panel.</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>I have a first prototype of the connector tree part of the board I've
+done, but I'm not happy with it. I'm planning to go back to the drawing
+board once I pick a specific MCU so that I can optimize the design to
+maximize the flexibility of alternate functions on various pins. In
+addition, the initial design didn't have any power on the connectors, so
+you had to depend on the MCU to source power, which isn't a great way to
+drive a lot of things.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2024 Christopher Petrilli
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "header.autohide"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
