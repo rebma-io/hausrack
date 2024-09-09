@@ -740,6 +740,14 @@ some documentation first, and make sure that I've shaken it out some,
 before I subject the world to it. My intention is to submit it to the
 Zephyr project for inclusion in future releases.
 
+!!! info "Posted on Github"
+    I have [posted this on
+    Github](https://github.com/rebma-io/weact-stm32g474-core), and it's
+    been renamed as the `core` board since it turns out both forms of
+    the board have the same pinouts just arranged slightly differently.
+
+    To do is cleaning it up and submitting it to the Zephyr project.
+
 ## Blink for Me Baby
 
 Here's the blink script that I used.
