@@ -1,0 +1,1844 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A wildly over-engineered home automation project">
+      
+      
+        <meta name="author" content="Christopher Petrilli">
+      
+      
+      
+        <link rel="prev" href="../../../05/17/oh-no-not-that-kind-of-oscillation/">
+      
+      
+        <link rel="next" href="../../24/development-boards-to-go/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>A New Board is Born - HAUSRACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Fathom - beautiful, simple website analytics -->
+<script src="https://cdn.usefathom.com/script.js" data-site="ZIPCWPRA" defer></script>
+<!-- / Fathom -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <link rel="alternate" type="application/rss+xml" title="Subscribe to Changes" href="/feed_rss_updated.xml" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-new-board-is-born" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="HAUSRACK" class="md-header__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAUSRACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A New Board is Born
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../design/" class="md-tabs__link">
+        
+  
+    
+  
+  Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software/" class="md-tabs__link">
+        
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../../../../" class="md-tabs__link">
+        
+  
+    
+  
+  Project Updates
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../CHANGELOG/" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="HAUSRACK" class="md-nav__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    HAUSRACK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/mechanical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/wiring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/datasheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datasheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#boardyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      board.yml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weact_stm32h474_longdts" class="md-nav__link">
+    <span class="md-ellipsis">
+      weact_stm32h474_long.dts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kconfigweact_stm32h474_long" class="md-nav__link">
+    <span class="md-ellipsis">
+      Kconfig.weact_stm32h474_long
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boardcmake" class="md-nav__link">
+    <span class="md-ellipsis">
+      board.cmake
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weact_stm32h474_longyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      weact_stm32h474_long.yaml
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weact_stm32h474_long_defconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      weact_stm32h474_long_defconfig
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems-i-ran-into-and-open-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems I Ran Into and Open Questions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blink-for-me-baby" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blink for Me Baby
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/petrilli.png" alt="Christopher Petrilli">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Christopher Petrilli
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-08-16 00:00:00" class="md-ellipsis">August 16, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/hardware/">Hardware</a>, 
+                              <a href="../../../../category/software/">Software</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              17 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="a-new-board-is-born">A New Board is Born</h1>
+<div class="admonition info">
+<p class="admonition-title">Where Have You Been?</p>
+<p>The short answer is "around", but the real answer is more
+complicated. Due to :gestures at world:, I haven't really been
+mentally in a place where I can spend time working on things like
+this project. After a few months of just zoning out, I've realized I
+need the structure of a project to keep me focused, and so I'm
+trying to pick back up where I left off.</p>
+</div>
+<p><img align="right" alt="A long PCB is inserted into a
+protoboard" src="../../../../img/weact-stm32g474-long.jpg" width="300" />
+When last we talked, I was talking about a modular base board built
+around an STM32H5, but I realized that there was another alternative ...
+build it around an existing board. So, that's my plan now. This removes
+a lot of design work, yes, but at least for the initial design, it lets
+me focus on some other things. I've chosen to use a board from WeAct
+Studio. These are the people behind the famous Blue Pill and Black Pill
+STM32 boards. They also make one built around an
+<a href="https://github.com/WeActStudio/WeActStudio.STM32G474CoreBoard">STM32G474CEU6</a>,
+which is a 170MHz ARM Cortex-M4 with 128KB of RAM, 512KB of Flash, and
+2 CAN-FD buses available. It's in a somewhat long 48-pin package. If you
+want to buy one, you can find them on your neighborhood massive Chinese
+marketplace. </p>
+<p>Since I'm planning to write all the software on top of
+<a href="http://zephyrproject.org">Zephyr</a>, and this board isn't in their
+already <a href="https://docs.zephyrproject.org/latest/boards/index.html">extensive list of
+boards</a>, I
+needed to add it to that. So, into the breach we go.</p>
+<p>First, I <a href="https://docs.zephyrproject.org/latest/hardware/porting/board_porting.html">read the
+documentation</a>.
+Since the SOC is supported already thanks to a ton of work from
+STMicroelectronics, it really just meant customizing for this specific
+instance on this board. To do that, I needed to name the board, and then
+create a bunch of files. The name I chose was <code>stm32g474_long</code> under the
+<code>weact</code>
+<a href="https://github.com/zephyrproject-rtos/zephyr/blob/main/dts/bindings/vendor-prefixes.txt">vendor</a>
+directory. Those files are:</p>
+<dl>
+<dt><code>board.yml</code></dt>
+<dd>
+<p>a YAML file describing the high-level meta data of the boards such
+as the boards names and the SOC. </p>
+</dd>
+<dt><code>weact_stm32h474_long.dts</code></dt>
+<dd>
+<p>The hardware description in devicetree format. This declares your SOC,
+connectors, and any other hardware components such as LEDs, buttons,
+sensors, or communication peripherals (USB, etc).</p>
+</dd>
+<dt><code>Kconfig.weact_stm32h474_long</code></dt>
+<dd>
+<p>This is the base software configuration for selecting SOC and other
+board and SOC related settings. Kconfig settings outside of the
+board and SOC tree must  not be selected. To select general Zephyr
+Kconfig settings the Kconfig file must be used.</p>
+</dd>
+<dt><code>board.cmake</code></dt>
+<dd>
+<p>Provides information on flashing and debugging the board</p>
+</dd>
+<dt><code>weact_stm32h474_long.yaml</code></dt>
+<dd>
+<p>A bunch of metadata that's mostly used by the test runner to help
+understand what tests to run. Note, I don't know why this one ends
+in <code>yaml</code>, but the other in <code>yml</code>, nor whether it matters, but I
+just copied the style in the documentation.</p>
+</dd>
+<dt><code>weact_stm32h474_long_defconfig</code></dt>
+<dd>
+<p>Some Kconfig-style presets for building any application. These can
+be overridden in the application.</p>
+</dd>
+</dl>
+<p>Rather than start from a clean slate, I actually decided to "borrow"
+some of the already made board configs from an existing WeAct board, the
+<a href="https://github.com/zephyrproject-rtos/zephyr/tree/main/boards/weact/stm32g431_core">STM32G431</a>
+model. This gave me a good head start on what I needed to do.</p>
+<p>So let's go through the files. I hope my explanations are both
+reasonably accurate and passably consumable. I'm learning this as I go
+along, and so this is just my current knowledge.</p>
+<h2 id="boardyml">board.yml</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">board</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weact_stm32g474_long</span>
+<span class="w">  </span><span class="nt">vendor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weact</span>
+<span class="w">  </span><span class="nt">socs</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stm32g474xx</span>
+</code></pre></div></td></tr></table></div>
+<p>This is pretty obvious, but the name of the SOC (line 5) is something
+you have to find in the <a href="https://github.com/zephyrproject-rtos/zephyr/tree/main/soc">existing
+repository</a>.
+Some of the naming isn't necessarily obvious to me, but it was pretty
+easy to figure out. Once you get to the right <a href="https://github.com/zephyrproject-rtos/zephyr/tree/main/soc/st/stm32/stm32g4xx">processor
+family</a>
+it's not too bad.</p>
+<h2 id="weact_stm32h474_longdts">weact_stm32h474_long.dts</h2>
+<p>This is the biggest of all of them, so let's take it from the top (post
+copyright). First, this is a
+<a href="https://docs.zephyrproject.org/latest/build/dts/index.html#dt-guide">devicetree</a>
+format, which is also used Linux.  I can't say as I consider myself to
+<em>know</em> it yet, but I've started to get a feel for it. I've elided empty
+lines along the way.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="cp">/dts-v1/</span><span class="p">;</span>
+<span class="w"> </span><span class="cp">#include</span><span class="cm"> </span><span class="cpf">&lt;st/g4/stm32g474Xe.dtsi&gt;</span>
+<span class="w"> </span><span class="cp">#include</span><span class="cm"> </span><span class="cpf">&lt;st/g4/stm32g474r(b-c-e)tx-pinctrl.dtsi&gt;</span>
+<span class="w"> </span><span class="cp">#include</span><span class="cm"> </span><span class="cpf">&lt;zephyr/dt-bindings/input/input-event-codes.h&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>First, we set the version of the DTS (devicetree) schema that's in use,
+then we include some existing files to set up some presets. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="nf">/</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WeAct STM32G474CEU6 Long board&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;weact,stm32g474_long&quot;</span><span class="p">;</span>
+
+<span class="w">     </span><span class="nf">chosen</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">zephyr</span><span class="p">,</span><span class="n">console</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lpuart1</span><span class="p">;</span>
+<span class="w">         </span><span class="n">zephyr</span><span class="p">,</span><span class="n">shell-uart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lpuart1</span><span class="p">;</span>
+<span class="w">         </span><span class="n">zephyr</span><span class="p">,</span><span class="n">sram</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">sram0</span><span class="p">;</span>
+<span class="w">         </span><span class="n">zephyr</span><span class="p">,</span><span class="n">flash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">flash0</span><span class="p">;</span>
+<span class="w">         </span><span class="n">zephyr</span><span class="p">,</span><span class="n">canbus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">fdcan2</span><span class="p">;</span>
+<span class="w">         </span><span class="n">zephyr</span><span class="p">,</span><span class="n">code-partition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">slot0_partition</span><span class="p">;</span>
+<span class="w">     </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The first thing to know is that the start of line 12 is the start of the
+definition of a node, in this case the root (<code>/</code>) node. Like most
+languages, everything inside the curly brackets is part of that
+definition.</p>
+<p>The <code>/chosen</code> node sets up some defaults. For example, line 17 says that
+the node <code>lpuart1</code> is the default Zephyr console. The <code>&amp;</code> is used a lot
+like C to grab the "address of" something else. They're called
+<a href="https://docs.zephyrproject.org/latest/build/dts/phandles.html">phandles</a>.
+In this case, <code>lpuart1</code> is the <a href="https://www.st.com/resource/en/product_training/stm32l4_peripheral_lpuart.pdf">low power
+UART</a>.
+Low power means it can function in low power mode when the low-speed
+(32.768KHz) clock is in effect. It is, however, limited to 9600bps at
+that time.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">     </span><span class="nf">leds</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gpio-leds&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="nl">blue_led</span><span class="p">:</span><span class="w"> </span><span class="nf">led_0</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">gpios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">gpioc</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="na">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">             </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;User LED&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">     </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>First we set up the on-board LED, in this case, an annoying blue one.
+Walking through this, line 25 creates the <code>/leds</code> node to contain all
+the LEDs on the board. It then says it's compatible with the <code>gpio-leds</code>
+hardware feature, and creates a specific instance <code>/leds/led_0</code> that
+also has an label with a different name, <code>/leds/blue_led</code> (line 27). On
+line 28 it sets up the GPIO pins for that LED. Since the LED is attached
+to pin PC6, we know that it's part of the C cluster of GPIO pins
+(<code>&amp;gpioc</code>), and then pin #6 in that cluster.  Finally, we tell it that
+the pin is considered active, when it's high. Zephyr can tell the
+difference between active high and active low pins. The <code>&lt;&gt;</code> defines an
+array, here with 3 elements.</p>
+<p>Note we are referencing phandles that are defined outside of our file
+and have been brought in via the earlier includes.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">     </span><span class="nf">pwmleds</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;pwm-leds&quot;</span><span class="p">;</span>
+
+<span class="w">         </span><span class="nf">blue_pwm_led</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">pwms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">pwm3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="na">PWM_MSEC</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="na">PWM_POLARITY_NORMAL</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">     </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Next, what's an LED that you can't dim? Useless, that's what!</p>
+<p>So, as above, we explain that it's compatible with the <code>pwm-leds</code>
+feature, and name the node <code>/pwmleds/blue_pwm_led</code>. We then have to set
+up the timer that specifically drives the pulse-width modulated (PWM)
+signal. </p>
+<div class="admonition note">
+<p class="admonition-title">The hidden world of timers</p>
+<p>This is hidden in things like Arduino, but in Zephyr and most
+other embedded systems, you have to know which timers are able to be 
+connected to which GPIO pins. This is often considered an "alternate
+function" of the pin. On STM32 there are multiple times, and each
+timer can have multiple "channels". There's various restrictions on
+them, but that's a topic for another time.</p>
+</div>
+<p>Here, we say this PWM is on channel 1 of timer 3, with a nominal period
+of 20ms, and "normal" polarity, meaning it's active high.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">     </span><span class="nf">gpio_keys</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;gpio-keys&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="nl">user_button</span><span class="p">:</span><span class="w"> </span><span class="nf">button</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;User&quot;</span><span class="p">;</span>
+<span class="w">             </span><span class="n">gpios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">gpioc</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="na">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">             </span><span class="n">zephyr</span><span class="p">,</span><span class="n">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="na">INPUT_KEY_0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">     </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Now we define some fancy "keys". This is part of the
+<a href="https://docs.zephyrproject.org/latest/build/dts/api/bindings/input/gpio-keys.html">gpio-keys</a>
+feature, which allows you to map GPIO pins into a set of input events,
+rather than just GPIO events. Think of it as mapping the keys on a
+keyboard. There are other <a href="https://docs.zephyrproject.org/latest/build/dts/api/bindings/input/input-keymap.html">more
+advanced</a>
+options for key matrices. The properties are similar to earlier, except
+this button is active when it's low (pulled to ground), and then we say
+that it emits <code>0</code> into the input stream when pressed.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">     </span><span class="nf">aliases</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">led0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">blue_led</span><span class="p">;</span>
+<span class="w">         </span><span class="n">mcuboot-led0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">blue_led</span><span class="p">;</span>
+<span class="w">         </span><span class="n">pwm-led0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">blue_pwm_led</span><span class="p">;</span>
+<span class="w">         </span><span class="n">sw0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">user_button</span><span class="p">;</span>
+<span class="w">         </span><span class="n">watchdog0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">iwdg</span><span class="p">;</span>
+<span class="w">         </span><span class="n">die-temp0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">die_temp</span><span class="p">;</span>
+<span class="w">         </span><span class="n">volt-sensor0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vref</span><span class="p">;</span>
+<span class="w">         </span><span class="n">volt-sensor1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vbat</span><span class="p">;</span>
+<span class="w">     </span><span class="p">};</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we set up a bunch of aliases that can be used to refer to things.
+These work exactly like any other phandle, so referencing <code>&amp;led0</code> is the
+same as referencing <code>&amp;blue_led</code>.</p>
+<p>Now comes the beast of a thing .. the clock tree. This is something that
+if you've never worked low-level (below Arduino, for example), you're
+probably completely unfamiliar with. There are multiple clock sources,
+phase-locked loops, and derivative clocks that drive everything. There's
+an <a href="https://community.st.com/t5/stm32-mcus/part-1-introduction-to-the-stm32-microcontroller-clock-system/ta-p/605369">excellent
+tutorial</a>
+on the STM32 support forum. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">clk_lsi</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we just tell Zephyr that the low-speed internal clock is "okay",
+meaning you can use it. You'll see this notation somewhat frequently.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">clk_hsi48</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we do the same thing for the high-speed internal clock, which runs
+at 48MHz.</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">clk_hse</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">clock-frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="na">DT_FREQ_M</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<a name="clock-fun"></a>
+Now here's where it gets interesting. Here we have to tell the system
+what the high-speed <em>external</em> clock is. It just gets a repeated pulse
+from the crystal, but it has no idea what that frequency is, so we tell
+it that it's 8MHz.</p>
+<p>I got this wrong initially as I misread the schematic, and it resulted
+in some challenges. I like to use a <a href="#blink-for-me-baby">LED blink
+program</a> as the initial test because it sorts out
+the clocks as well as GPIO, and when it was initially set to be a 1s
+cycle, it was taking 3.something seconds. Something was off. </p>
+<p>It turned out that I had both <code>clk_hse</code> and <code>pll</code> wrong. I had copied
+them from another SOC which has a different target clock rate, and
+different oscillator frequency. There was definitely some trial and
+error to sort that out as I also had to make sure I <em>really</em> understood
+the STM32 clock tree.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">pll</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">div-m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">mul-n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">85</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">div-p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">div-q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">div-r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">clk_hse</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>One of the first things that is done is to use a <a href="https://en.wikipedia.org/wiki/Phase-locked_loop">phase-locked
+loop</a> to create a
+derivative highly accurate clock signal from the input. We tell it that
+we want to use <code>&amp;clk_hse</code> we just defined as the source (there's another
+separate thing going on for the low-speed clock that's out of scope
+here). Then we have to provide all the multipliers and divisors that it
+needs to generate the output clock, which are documented in the chip
+reference manual, but also some information is in <a href="https://community.st.com/t5/stm32-mcus/how-to-use-stm32cubemx-to-configure-hse-high-speed-external/ta-p/49604">this
+post</a>.
+The best way to get these is to use
+<a href="https://www.st.com/en/development-tools/stm32cubemx.html">STM32CubeMX</a>
+and its clock solver to get it all right. </p>
+<p>To get an idea of how complex the clock system is, here's a quick
+screenshot of the clock configuration section of the app:</p>
+<p><img alt="A screenshot from STM32CubeMX's clock configuration screen" src="../../../../img/stm32cubemx-clocks.jpg" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">pll</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">clock-frequency</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="na">DT_FREQ_M</span><span class="p">(</span><span class="mi">170</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">ahb-prescaler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">apb1-prescaler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">apb2-prescaler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we configure the reset and clock control (RCC) circuit, which is
+one of the main sources that distributes and times things across the
+rest of the MCU. We tell it to get its source from the PLL, and that the
+target frequency is 170MHz. We then provide any scalers needed for the
+various buses inside the MCU.</p>
+<div class="admonition note">
+<p class="admonition-title">Why so many knobs?</p>
+<p>You might ask, why is this so damned complicated? The main reason is
+power management. If you're worrying about power consumption, say 
+because you're battery powered, slower clocks use less power. A lot 
+less. Being able to tune clocks across the system to only use the 
+"minimum" clock to get the job done lets you seriously dial down the 
+power consumption of the MCU.</p>
+<p>In our case, we don't really care because everything in mains-powered, 
+and we are only talking about milliamps. But in a battery-powered
+system, you could reduce the power consumption by a factor of 5 or
+more.</p>
+</div>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">93</span>
+<span class="normal">94</span>
+<span class="normal">95</span>
+<span class="normal">96</span>
+<span class="normal">97</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nl">zephyr_udc0</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="na">usb</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">usb_dm_pa11</span><span class="w"> </span><span class="o">&amp;</span><span class="na">usb_dp_pa12</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+We now enter the heavy IO section of the devicetree, and we need to
+start by talking about <a href="https://docs.zephyrproject.org/latest/hardware/pinctrl/index.html">pin
+control</a>.
+This is a deep topic, and is also specific to the individual MCU
+architecture. Diving in, every GPIO (general purpose IO) pin has an
+entire little active complex circuit inside it that not only drives it
+but does a huge amount of configuration. Pin control is what decides if
+the pin is just a regular IO pin, or if it's using an alternate function
+(AF), like ADC or DAC. It determines if it's an input or output pin, if
+it's pulled up or down, or left floating. It determines whether it's an
+<a href="https://en.wikipedia.org/wiki/Open_collector">open drain</a> output or
+configured in
+<a href="https://en.wikipedia.org/wiki/Push–pull_output">push-pull</a>. It's a
+whole collection of switches, resistors, and other components to let you
+plop a value in an IO register and have it all magically reconfigure.
+There's a great introduction to how all this works (in Linux, but it's
+very much the same in Zephyr) in <a href="https://elinux.org/images/a/a7/ELC-2021_Introduction_to_pin_muxing_and_GPIO_control_under_Linux.pdf">this
+presentation</a>.</p>
+<p>Here we're creating a node <code>usb</code> on the phandles specifically for the
+USB AF on pins PA11 and PA12 as the first (0<sup>th</sup>) configuration of pin
+control, which in this case is labeled as "default" and marked as OK.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">&amp;</span><span class="na">usart1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">usart1_tx_pc4</span><span class="w"> </span><span class="o">&amp;</span><span class="na">usart1_rx_pc5</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">current-speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">115200</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">lpuart1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">lpuart1_tx_pa2</span><span class="w"> </span><span class="o">&amp;</span><span class="na">lpuart1_rx_pa3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">analog_pa2</span><span class="w"> </span><span class="o">&amp;</span><span class="na">analog_pa3</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sleep&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">current-speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">115200</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Something similar is happening here, but in the <code>lpuart1</code> we have
+something different. We have 2 different configurations (0, 1) with
+different names (aliases basically) of "default" and "sleep". We're
+saying that in the normal running mode, this is the TX and RX pins for
+the low-power UART #1, but when the chip is asleep, it flips to a
+regular analog I/O, which allows for easier wake-up.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">i2c1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">i2c1_scl_pb8</span><span class="w"> </span><span class="o">&amp;</span><span class="na">i2c1_sda_pb9</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>...</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">spi1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">spi1_sck_pa5</span><span class="w"> </span><span class="o">&amp;</span><span class="na">spi1_miso_pa6</span><span class="w"> </span><span class="o">&amp;</span><span class="na">spi1_mosi_pa7</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">cs-gpios</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">gpiob</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="p">(</span><span class="na">GPIO_ACTIVE_LOW</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="na">GPIO_PULL_UP</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we're defining an
+<a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a> set of
+pins. The <code>cs-gpios</code> defines the pin PB6 as the chip select line for the
+SPI port, marks it as active when it's low, and then attaches a pull-up
+resistor to it internally to hold it inactive by default.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">spi2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">spi2_nss_pb12</span><span class="w"> </span><span class="o">&amp;</span><span class="na">spi2_sck_pb13</span>
+<span class="w">              </span><span class="o">&amp;</span><span class="na">spi2_miso_pb14</span><span class="w"> </span><span class="o">&amp;</span><span class="na">spi2_mosi_pb15</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">spi3</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">spi3_nss_pa15</span><span class="w"> </span><span class="o">&amp;</span><span class="na">spi3_sck_pc10</span>
+<span class="w">              </span><span class="o">&amp;</span><span class="na">spi3_miso_pc11</span><span class="w"> </span><span class="o">&amp;</span><span class="na">spi3_mosi_pc12</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>More of the same here, but without the chip select defined yet. This can
+be done in the user's code.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">timers2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+
+<span class="w">     </span><span class="nl">pwm2</span><span class="p">:</span><span class="w"> </span><span class="nf">pwm</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">tim2_ch1_pa5</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="p">};</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="nf">timers3</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">st</span><span class="p">,</span><span class="n">prescaler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">10000</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="nl">pwm3</span><span class="p">:</span><span class="w"> </span><span class="nf">pwm</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">tim3_ch1_pb4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="p">};</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="nl">stm32_lp_tick_source</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">lptim1</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_CLOCK_BUS_APB1</span><span class="w"> </span><span class="mh">0x80000000</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">         </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_SRC_LSI</span><span class="w"> </span><span class="na">LPTIM1_SEL</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>We need to set up our timers, and we configure them for use as PWM
+timers as well. The <code>st,prescaler</code> is an STM32-specific property that
+says that the timer should be "scaled" down by 1000x. </p>
+<p>We also define a low-power tick source leveraging the low-power timer #1. 
+Unfortunately, I don't actually understand the <code>clocks</code> property and
+copied it from another definition. <em>I have no idea if it works</em>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">rtc</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_CLOCK_BUS_APB1</span><span class="w"> </span><span class="mh">0x00000400</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">          </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_SRC_LSI</span><span class="w"> </span><span class="na">RTC_SEL</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The STM32 has a real-time clock (RTC) that keeps a time and date
+running as long as it's not in the most aggressive sleep state. Again,
+copied, because the <code>clocks</code> property escapes my understanding and
+searching.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">flash0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="na">partitions</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kr">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;fixed-partitions&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="kr">#address-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="kr">#size-cells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="w">         </span><span class="nl">boot_partition</span><span class="p">:</span><span class="w"> </span><span class="nf">partition</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;mcuboot&quot;</span><span class="p">;</span>
+<span class="w">             </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x00000000</span><span class="w"> </span><span class="na">DT_SIZE_K</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">         </span><span class="nl">slot0_partition</span><span class="p">:</span><span class="w"> </span><span class="nf">partition</span><span class="o">@</span><span class="mi">8800</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;image-0&quot;</span><span class="p">;</span>
+<span class="w">             </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x00008800</span><span class="w"> </span><span class="na">DT_SIZE_K</span><span class="p">(</span><span class="mi">240</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">         </span><span class="nl">slot1_partition</span><span class="p">:</span><span class="w"> </span><span class="nf">partition</span><span class="o">@</span><span class="mi">44800</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;image-1&quot;</span><span class="p">;</span>
+<span class="w">             </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x00044800</span><span class="w"> </span><span class="na">DT_SIZE_K</span><span class="p">(</span><span class="mi">234</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">         </span><span class="cm">/* Set 4Kb of storage at the end of the 512Kb of flash */</span>
+<span class="w">         </span><span class="nl">storage_partition</span><span class="p">:</span><span class="w"> </span><span class="nf">partition</span><span class="o">@</span><span class="mi">7f000</span><span class="cm"> </span><span class="p">{</span>
+<span class="w">             </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;storage&quot;</span><span class="p">;</span>
+<span class="w">             </span><span class="kr">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0007f000</span><span class="w"> </span><span class="na">DT_SIZE_K</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">};</span>
+<span class="w">     </span><span class="p">};</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>We need to break the flash storage into a few pieces here. We define 4
+partitions for the boot loader, two versions of the code, and a 4Kb
+storage area that you could lay a filesystem abstraction on top of, or
+just store things directly into. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">iwdg</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">rng</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">die_temp</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Just a few peripherals, the watchdog timer (<code>iwdg</code>), random number
+generator (<code>rng</code>), and die temperature sensor (<code>die_temp</code>). We simply
+mark them as available and ready.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">adc1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">adc1_in1_pa0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">st</span><span class="p">,</span><span class="n">adc-clock-source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="na">SYNC</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">st</span><span class="p">,</span><span class="n">adc-prescaler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">dac1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">dac1_out1_pa4</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>We wire up pin PA0 to ADC #1 channel 1. We tie it to the APB bus clock
+(<code>st,adc-clock-source</code>), rather than letting it be independent, and then
+we scale it down by a factor of 4 (<code>st,adc-prescaler</code>).</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">fdcan1</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_CLOCK_BUS_APB1</span><span class="w"> </span><span class="mh">0x02000000</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">          </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_SRC_HSE</span><span class="w"> </span><span class="na">FDCAN_SEL</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">fdcan1_rx_pa11</span><span class="w"> </span><span class="o">&amp;</span><span class="na">fdcan1_tx_pa12</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">fdcan2</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_CLOCK_BUS_APB1</span><span class="w"> </span><span class="mh">0x02000000</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">              </span><span class="o">&lt;&amp;</span><span class="na">rcc</span><span class="w"> </span><span class="na">STM32_SRC_HSE</span><span class="w"> </span><span class="na">FDCAN_SEL</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="na">fdcan2_rx_pb12</span><span class="w"> </span><span class="o">&amp;</span><span class="na">fdcan2_tx_pb13</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="w">     </span><span class="n">pinctrl-names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;default&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The STM3G474 has 3 CAN-FD (or is it FDCAN? I see it written both ways),
+and so we configure two of them.  At this point, this should be mostly
+understandable. </p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="o">&amp;</span><span class="na">vref</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+
+<span class="w"> </span><span class="o">&amp;</span><span class="na">vbat</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="kr">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="w"> </span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>And finally, we enable the VREF+ and VBAT nodes on the chip. This allows
+them to be measured with the ADC.</p>
+<h2 id="kconfigweact_stm32h474_long">Kconfig.weact_stm32h474_long</h2>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">config</span><span class="w"> </span>BOARD_WEACT_STM32G474_LONG
+<span class="w">    </span><span class="k">select</span><span class="w"> </span>SOC_STM32G474XX
+</code></pre></div></td></tr></table></div>
+Here we set the base software configuration for selecting SoC and other
+board and SoC related settings.</p>
+<h2 id="boardcmake">board.cmake</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">board_runner_args</span><span class="p">(</span><span class="s">dfu-util</span><span class="w"> </span><span class="s2">&quot;--device=0483:df11&quot;</span><span class="w"> </span><span class="s2">&quot;--alt=0&quot;</span><span class="w"> </span><span class="s2">&quot;--dfuse&quot;</span><span class="p">)</span>
+
+<span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">ZEPHYR_BASE</span><span class="o">}</span><span class="s">/boards/common/dfu-util.board.cmake</span><span class="p">)</span>
+<span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">ZEPHYR_BASE</span><span class="o">}</span><span class="s">/boards/common/openocd.board.cmake</span><span class="p">)</span>
+<span class="nb">include</span><span class="p">(</span><span class="o">${</span><span class="nv">ZEPHYR_BASE</span><span class="o">}</span><span class="s">/boards/common/blackmagicprobe.board.cmake</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Now we setup some things to make programming the board easier. You can
+get the values for <code>--device</code> and <code>--alt</code> by running the <code>dfu-util -l</code>
+when the board is plugged in and in DFU mode (for this one, that means
+holding down the BOOT0 button while pressing the NRST button). You'll
+get something like this:</p>
+<div class="highlight"><pre><span></span><code>$ dfu-util -l
+dfu-util 0.11
+
+Copyright 2005-2009 Weston Schmidt, Harald Welte and OpenMoko Inc.
+Copyright 2010-2021 Tormod Volden and Stefan Schmidt
+This program is Free Software and has ABSOLUTELY NO WARRANTY
+Please report bugs to http://sourceforge.net/p/dfu-util/tickets/
+
+Found DFU: [0483:df11] ver=0200, devnum=1, cfg=1, intf=0, path=&quot;1-1&quot;, alt=2, name=&quot;@OTP Memory   /0x1FFF7000/01*1024 e&quot;, serial=&quot;205939885533&quot;
+Found DFU: [0483:df11] ver=0200, devnum=1, cfg=1, intf=0, path=&quot;1-1&quot;, alt=1, name=&quot;@Option Bytes   /0x1FFF7800/01*048 e/0x1FFFF800/01*048 e&quot;, serial=&quot;205939885533&quot;
+Found DFU: [0483:df11] ver=0200, devnum=1, cfg=1, intf=0, path=&quot;1-1&quot;, alt=0, name=&quot;@Internal Flash   /0x08000000/256*02Kg&quot;, serial=&quot;205939885533&quot;
+</code></pre></div>
+<p>Looking at this we can see the vendor and device ID in brackets
+(<code>[0483:df11]</code>), and the <code>alt</code> targets.</p>
+<h2 id="weact_stm32h474_longyaml">weact_stm32h474_long.yaml</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nt">identifier</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weact_stm32g474_long</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">WeAct Studio STM32G474 Long Board</span>
+<span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mcu</span>
+<span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arm</span>
+<span class="nt">toolchain</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zephyr</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gnuarmemb</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xtools</span>
+<span class="nt">ram</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span>
+<span class="nt">flash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">512</span>
+<span class="nt">supported</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvs</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pwm</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">i2c</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpio</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usb device</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">counter</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spi</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">watchdog</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adc</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dac</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dma</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">can</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rtc</span>
+<span class="nt">vendor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">weact</span>
+</code></pre></div></td></tr></table></div>
+<p>This metadata is used primarily by the <a href="https://docs.zephyrproject.org/latest/develop/test/twister.html#twister-script">test
+runner</a>
+to help determine which parts of the test suite to run. The reason is
+you could target multiple boards with different capabilities, and then
+adjust both your application and the testing to meet them.</p>
+<h2 id="weact_stm32h474_long_defconfig">weact_stm32h474_long_defconfig</h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code>CONFIG_CLOCK_CONTROL<span class="s">=y</span>
+CONFIG_PINCTRL<span class="s">=y</span>
+
+CONFIG_ARM_MPU<span class="s">=y</span>
+CONFIG_HW_STACK_PROTECTION<span class="s">=y</span>
+
+CONFIG_GPIO<span class="s">=y</span>
+
+CONFIG_SERIAL<span class="s">=y</span>
+CONFIG_UART_INTERRUPT_DRIVEN<span class="s">=y</span>
+CONFIG_CONSOLE<span class="s">=y</span>
+CONFIG_UART_CONSOLE<span class="s">=y</span>
+</code></pre></div></td></tr></table></div>
+<p>Finally, we set some default Kconfig settings for every project that
+they can override.  You can learn more about each of these, although I
+think they're mostly self-evident, from this <a href="https://docs.zephyrproject.org/latest/kconfig.html">search
+interface</a>. </p>
+<h2 id="problems-i-ran-into-and-open-questions">Problems I Ran Into and Open Questions</h2>
+<p>I ran into a few problems along the way and have a few open questions.</p>
+<ul>
+<li>As <a href="#clock-fun">mentioned earlier</a>, the clock tree was the hardest
+  part that I ran into. This is also why I like an LED blink script to
+  test the board with. It's the simplest thing to run, but it exposes
+  timing issues quite quickly. You might not find a small error, but
+  you'll definitely find <em>most</em> of them. </li>
+<li>I still don't really understand a lot of the phandles for things like
+  clocks. This is just a complex topic, and my search foo isn't finding
+  the information I need to grok it. I'll get there eventually.</li>
+<li>It's unclear to me how you would start with a clean slate. Definitely
+  starting from a similar board helped enormously. </li>
+<li>Eventually, I want to figure out how to add a new SOC. They're also
+  defined through the device tree paradigm. </li>
+</ul>
+<p>I will be putting this up on Github at some point, but need to write
+some documentation first, and make sure that I've shaken it out some,
+before I subject the world to it. My intention is to submit it to the
+Zephyr project for inclusion in future releases.</p>
+<div class="admonition info">
+<p class="admonition-title">Posted on Github</p>
+<p>I have <a href="https://github.com/rebma-io/weact-stm32g474-core">posted this on
+Github</a>, and it's
+been renamed as the <code>core</code> board since it turns out both forms of
+the board have the same pinouts just arranged slightly differently.</p>
+<p>To do is cleaning it up and submitting it to the Zephyr project.</p>
+</div>
+<h2 id="blink-for-me-baby">Blink for Me Baby</h2>
+<p>Here's the blink script that I used.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/drivers/gpio.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/drivers/uart.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/kernel.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/sys/printk.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;zephyr/usb/usb_device.h&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>Just normal includes to get access to everything.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* The devicetree node identifier for the &quot;led0&quot; alias. */</span>
+<span class="cp">#define LED0_NODE DT_ALIAS(led0)</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * A build error on this line means your board is unsupported.</span>
+<span class="cm"> * See the sample documentation for information on how to fix this.</span>
+<span class="cm"> */</span>
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">gpio_dt_spec</span><span class="w"> </span><span class="n">led</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GPIO_DT_SPEC_GET</span><span class="p">(</span><span class="n">LED0_NODE</span><span class="p">,</span><span class="w"> </span><span class="n">gpios</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Here's where all that device tree work comes into play. We first resolve
+the <code>led0</code> alias, and then we get the GPIO spec for it. This abstraction
+means that you can have a bunch of different boards with slightly
+different wiring that don't require any software changes. For many uses,
+it is unfortuantely, maybe an abstraction that obscures how things work.
+I'm definitely of a mixed mood about it.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sleep_ms</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">gpio_is_ready_dt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpio_pin_configure_dt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">,</span><span class="w"> </span><span class="n">GPIO_OUTPUT_ACTIVE</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>As befits an embedded system, there's no parameters passed to <code>main</code>. I
+mean, where would they come from?</p>
+<p>We then make sure that there's a GPIO pin attached to the <code>led</code>
+variable, and then configure it to be an output pin.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">39</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">usb_enable</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;usb_enable: %i&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Here we enable the USB functionality. I ran into some issues here,
+because according to the docs, this should return <code>0</code> on success, and
+something negative on failure. But I got negative values no matter what,
+and yet the USB was working. On the heap of things to dig into more. </p>
+<p>I had originally wanted to loop here to wait until the console is
+attached. For that, I just use
+<a href="https://en.wikipedia.org/wiki/Minicom">minicom</a>, and it's executed on
+my M1 Macbook Air as <code>minicom -D  /dev/tty.usbmodem1101 -b 115200</code>. Not
+really sure that the baud rate matters, but I used it anyway.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gpio_pin_toggle_dt</span><span class="p">(</span><span class="o">&amp;</span><span class="n">led</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">printk</span><span class="p">(</span><span class="s">&quot;LED state: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gpio_pin_get</span><span class="p">(</span><span class="n">led</span><span class="p">.</span><span class="n">port</span><span class="p">,</span><span class="w"> </span><span class="n">led</span><span class="p">.</span><span class="n">pin</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;ON&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;OFF&quot;</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// 1000ms = 1s</span>
+<span class="w">        </span><span class="n">k_msleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Finally, we throw the program into an infinite loop and toggle the pin
+off and on, printing out the current state of the pin and sleeping 1
+second, leading to 1 second on and 1 second off. The program is
+marginally more complicated than an Arduino sketch, but that's largely
+because Arduino's framework hides many things from you. Up to a point,
+this is a huge win, until it's not. For my overly complicated project, I
+wanted to have it all exposed. I'll be diving into more advanced
+features of Zephyr later like pub/sub, threading, sensor framework, etc.</p>
+<p>And with that, we're kinda done? Somewhat done? The <a href="https://en.wikipedia.org/wiki/Magic_smoke">magic
+smoke</a> didn't come out of the
+chip, at least! </p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2024 Christopher Petrilli
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "header.autohide"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,926 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A wildly over-engineered home automation project">
+      
+      
+        <meta name="author" content="Christopher Petrilli">
+      
+      
+      
+        <link rel="prev" href="../../02/a-bus-is-a-bus-of-course-of-course/">
+      
+      
+        <link rel="next" href="../../04/a-modular-base-board/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>CAN on 8p8c Connectors - HAUSRACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Fathom - beautiful, simple website analytics -->
+<script src="https://cdn.usefathom.com/script.js" data-site="ZIPCWPRA" defer></script>
+<!-- / Fathom -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <link rel="alternate" type="application/rss+xml" title="Subscribe to Changes" href="/feed_rss_updated.xml" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#can-on-8p8c-connectors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="HAUSRACK" class="md-header__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAUSRACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CAN on 8p8c Connectors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../design/" class="md-tabs__link">
+        
+  
+    
+  
+  Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software/" class="md-tabs__link">
+        
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../../../../" class="md-tabs__link">
+        
+  
+    
+  
+  Project Updates
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../CHANGELOG/" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="HAUSRACK" class="md-nav__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    HAUSRACK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/mechanical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/wiring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/datasheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datasheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Goals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connector-signal-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connector Signal Mapping
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cable-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cable Wiring
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/petrilli.png" alt="Christopher Petrilli">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Christopher Petrilli
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-05-03 00:00:00" class="md-ellipsis">May 3, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/hardware/">Hardware</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              4 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="can-on-8p8c-connectors">CAN on 8p8c Connectors</h1>
+<div class="admonition info inline end">
+<p class="admonition-title">8p8c is not RJ45</p>
+<p><em>Pedantic Warning</em> You will often hear people call the modular
+  connectors that are used for Ethernet "RJ45", but that standard is
+  a very specific thing that is not actually what you're using. The
+  correct term is an 8p8c connector, which refers to the 8 positions
+  and 8 contacts. </p>
+<p>I have often done this myself, but for the purposes of being 
+  <a href="https://www.youtube.com/watch?v=hou0lU8WMgo">technically correct</a>, 
+  I will try my best to stick to the proper designation.</p>
+</div>
+<p>For the project, I want to connect the string of devices over CANbus. To
+do that, I intend to leverage the ubiquitous
+<a href="https://en.wikipedia.org/wiki/Modular_connector#8P8C">8p8c</a> that you
+see all over the place in Ethernet.</p>
+<h2 id="goals">Goals</h2>
+<p>There were a few goals in mind:</p>
+<ol>
+<li>Use existing standards and easily available connectors and cables</li>
+<li>Deliver power over the same cable as the signal</li>
+<li>Provide reasonable noise immunity</li>
+</ol>
+<p>The noise immunity is pretty easy given this is a differential signal
+and we are going to use twisted pairs to twist the high and low signal
+together. Looking at an oscilloscope trace of the CAN signal from <a href="https://www.ti.com/lit/an/sloa101b/sloa101b.pdf">this
+TI application note</a>,
+you can see the differential nature:</p>
+<p><img alt="An oscilloscope plot showing a single-ended signal converted to
+differential signal" src="../../../../img/ti-sloa101b-can-bus.png" /></p>
+<h2 id="connector-signal-mapping">Connector Signal Mapping</h2>
+<p>For the ends, I chose to use a rather boring layout, but I wanted to
+make sure CAN was twisted together, and that each of the +12V wires was
+also twisted with a ground.</p>
+<p><svg width="119pt" height="238pt" viewBox="0.00 0.00 119.00 238.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 234)"><title>%3</title><polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-234 115,-234 115,4 -4,4"/><!-- X1 --><g id="node1" class="node"><title>X1</title><polygon fill="#ffffff" stroke="black" points="111,-230 0,-230 0,0 111,0 111,-230"/><polygon fill="none" stroke="black" points="0.5,-207 0.5,-230 111.5,-230 111.5,-207 0.5,-207"/><text text-anchor="start" x="47.5" y="-214.8" font-family="arial" font-size="14.00">X1</text><polygon fill="none" stroke="black" points="0.5,-184 0.5,-207 38.5,-207 38.5,-184 0.5,-184"/><text text-anchor="start" x="4.5" y="-191.8" font-family="arial" font-size="14.00">8p8c</text><polygon fill="none" stroke="black" points="38.5,-184 38.5,-207 72.5,-207 72.5,-184 38.5,-184"/><text text-anchor="start" x="42.5" y="-191.8" font-family="arial" font-size="14.00">plug</text><polygon fill="none" stroke="black" points="72.5,-184 72.5,-207 111.5,-207 111.5,-184 72.5,-184"/><text text-anchor="start" x="76.5" y="-191.8" font-family="arial" font-size="14.00">8&#45;pin</text><polygon fill="none" stroke="black" points="0.5,-161 0.5,-184 37.5,-184 37.5,-161 0.5,-161"/><text text-anchor="start" x="15" y="-168.8" font-family="arial" font-size="14.00">1</text><polygon fill="none" stroke="black" points="37.5,-161 37.5,-184 111.5,-184 111.5,-161 37.5,-161"/><text text-anchor="start" x="51.5" y="-168.8" font-family="arial" font-size="14.00">CAN_H</text><polygon fill="none" stroke="black" points="0.5,-138 0.5,-161 37.5,-161 37.5,-138 0.5,-138"/><text text-anchor="start" x="15" y="-145.8" font-family="arial" font-size="14.00">2</text><polygon fill="none" stroke="black" points="37.5,-138 37.5,-161 111.5,-161 111.5,-138 37.5,-138"/><text text-anchor="start" x="52.5" y="-145.8" font-family="arial" font-size="14.00">CAN_L</text><polygon fill="none" stroke="black" points="0.5,-115 0.5,-138 37.5,-138 37.5,-115 0.5,-115"/><text text-anchor="start" x="15" y="-122.8" font-family="arial" font-size="14.00">3</text><polygon fill="none" stroke="black" points="37.5,-115 37.5,-138 111.5,-138 111.5,-115 37.5,-115"/><text text-anchor="start" x="59" y="-122.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="0.5,-92 0.5,-115 37.5,-115 37.5,-92 0.5,-92"/><text text-anchor="start" x="15" y="-99.8" font-family="arial" font-size="14.00">4</text><polygon fill="none" stroke="black" points="37.5,-92 37.5,-115 111.5,-115 111.5,-92 37.5,-92"/><text text-anchor="start" x="58" y="-99.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="0.5,-69 0.5,-92 37.5,-92 37.5,-69 0.5,-69"/><text text-anchor="start" x="15" y="-76.8" font-family="arial" font-size="14.00">5</text><polygon fill="none" stroke="black" points="37.5,-69 37.5,-92 111.5,-92 111.5,-69 37.5,-69"/><text text-anchor="start" x="58" y="-76.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="0.5,-46 0.5,-69 37.5,-69 37.5,-46 0.5,-46"/><text text-anchor="start" x="15" y="-53.8" font-family="arial" font-size="14.00">6</text><polygon fill="none" stroke="black" points="37.5,-46 37.5,-69 111.5,-69 111.5,-46 37.5,-46"/><text text-anchor="start" x="59" y="-53.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="0.5,-23 0.5,-46 37.5,-46 37.5,-23 0.5,-23"/><text text-anchor="start" x="15" y="-30.8" font-family="arial" font-size="14.00">7</text><polygon fill="none" stroke="black" points="37.5,-23 37.5,-46 111.5,-46 111.5,-23 37.5,-23"/><text text-anchor="start" x="59" y="-30.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="0.5,0 0.5,-23 37.5,-23 37.5,0 0.5,0"/><text text-anchor="start" x="15" y="-7.8" font-family="arial" font-size="14.00">8</text><polygon fill="none" stroke="black" points="37.5,0 37.5,-23 111.5,-23 111.5,0 37.5,0"/><text text-anchor="start" x="58" y="-7.8" font-family="arial" font-size="14.00">+12V</text></g></g></svg></p>
+<h2 id="cable-wiring">Cable Wiring</h2>
+<p>The wiring is standard Ethernet wiring, following the
+<a href="https://www.flukenetworks.com/knowledge-base/application-or-standards-articles-copper/differences-between-wiring-codes-t568a-vs">T568A</a>
+standard. The reality is that it doesn't matter whether you use T568A or
+T568B, quite honestly, but I just picked A because it's the most common
+and what the typical patch cable is wired for.</p>
+<p><a href="https://en.wikipedia.org/wiki/Category_5_cable">Category 5/5e</a> is more
+than adequate for the signalling that CAN or CAN FD use. The general
+rating for Category 5 is 100MHz, and if we look at a quality cable, like
+the <a href="https://www.belden.com/products/cable/ethernet-cable/category-5e-cable/1224">Belden
+1224</a>,
+we can see that it has the following characteristics:</p>
+<table>
+<thead>
+<tr>
+<th>Max DCR</th>
+<th>Max DCR Imbalance</th>
+<th>Max Capacitance</th>
+<th>Insertion Loss(100MHz)</th>
+<th>Fitted Impedence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>89&ohm;/km</td>
+<td>3%</td>
+<td>33pF/100m</td>
+<td>21dB/100m</td>
+<td>100&plusmn;15&ohm;</td>
+</tr>
+</tbody>
+</table>
+<p>And it is, in fact, rated to 350MHz, far in excess of what's needed.</p>
+<p>The makes the overall wiring looks like this:</p>
+<p><svg width="777pt" height="324pt" viewBox="0.00 0.00 777.00 324.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 320)"><title>%3</title><polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-320 773,-320 773,4 -4,4"/><!-- X1 --><g id="node1" class="node"><title>X1</title><polygon fill="#ffffff" stroke="black" points="111,-264 0,-264 0,-34 111,-34 111,-264"/><polygon fill="none" stroke="black" points="0.5,-241 0.5,-264 111.5,-264 111.5,-241 0.5,-241"/><text text-anchor="start" x="47.5" y="-248.8" font-family="arial" font-size="14.00">X1</text><polygon fill="none" stroke="black" points="0.5,-218 0.5,-241 38.5,-241 38.5,-218 0.5,-218"/><text text-anchor="start" x="4.5" y="-225.8" font-family="arial" font-size="14.00">8p8c</text><polygon fill="none" stroke="black" points="38.5,-218 38.5,-241 72.5,-241 72.5,-218 38.5,-218"/><text text-anchor="start" x="42.5" y="-225.8" font-family="arial" font-size="14.00">plug</text><polygon fill="none" stroke="black" points="72.5,-218 72.5,-241 111.5,-241 111.5,-218 72.5,-218"/><text text-anchor="start" x="76.5" y="-225.8" font-family="arial" font-size="14.00">8&#45;pin</text><polygon fill="none" stroke="black" points="0.5,-195 0.5,-218 75.5,-218 75.5,-195 0.5,-195"/><text text-anchor="start" x="15" y="-202.8" font-family="arial" font-size="14.00">CAN_H</text><polygon fill="none" stroke="black" points="75.5,-195 75.5,-218 111.5,-218 111.5,-195 75.5,-195"/><text text-anchor="start" x="89.5" y="-202.8" font-family="arial" font-size="14.00">1</text><polygon fill="none" stroke="black" points="0.5,-172 0.5,-195 75.5,-195 75.5,-172 0.5,-172"/><text text-anchor="start" x="16" y="-179.8" font-family="arial" font-size="14.00">CAN_L</text><polygon fill="none" stroke="black" points="75.5,-172 75.5,-195 111.5,-195 111.5,-172 75.5,-172"/><text text-anchor="start" x="89.5" y="-179.8" font-family="arial" font-size="14.00">2</text><polygon fill="none" stroke="black" points="0.5,-149 0.5,-172 75.5,-172 75.5,-149 0.5,-149"/><text text-anchor="start" x="22.5" y="-156.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="75.5,-149 75.5,-172 111.5,-172 111.5,-149 75.5,-149"/><text text-anchor="start" x="89.5" y="-156.8" font-family="arial" font-size="14.00">3</text><polygon fill="none" stroke="black" points="0.5,-126 0.5,-149 75.5,-149 75.5,-126 0.5,-126"/><text text-anchor="start" x="21.5" y="-133.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="75.5,-126 75.5,-149 111.5,-149 111.5,-126 75.5,-126"/><text text-anchor="start" x="89.5" y="-133.8" font-family="arial" font-size="14.00">4</text><polygon fill="none" stroke="black" points="0.5,-103 0.5,-126 75.5,-126 75.5,-103 0.5,-103"/><text text-anchor="start" x="21.5" y="-110.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="75.5,-103 75.5,-126 111.5,-126 111.5,-103 75.5,-103"/><text text-anchor="start" x="89.5" y="-110.8" font-family="arial" font-size="14.00">5</text><polygon fill="none" stroke="black" points="0.5,-80 0.5,-103 75.5,-103 75.5,-80 0.5,-80"/><text text-anchor="start" x="22.5" y="-87.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="75.5,-80 75.5,-103 111.5,-103 111.5,-80 75.5,-80"/><text text-anchor="start" x="89.5" y="-87.8" font-family="arial" font-size="14.00">6</text><polygon fill="none" stroke="black" points="0.5,-57 0.5,-80 75.5,-80 75.5,-57 0.5,-57"/><text text-anchor="start" x="22.5" y="-64.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="75.5,-57 75.5,-80 111.5,-80 111.5,-57 75.5,-57"/><text text-anchor="start" x="89.5" y="-64.8" font-family="arial" font-size="14.00">7</text><polygon fill="none" stroke="black" points="0.5,-34 0.5,-57 75.5,-57 75.5,-34 0.5,-34"/><text text-anchor="start" x="21.5" y="-41.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="75.5,-34 75.5,-57 111.5,-57 111.5,-34 75.5,-34"/><text text-anchor="start" x="89.5" y="-41.8" font-family="arial" font-size="14.00">8</text></g><!-- W1 --><g id="node3" class="node"><title>W1</title><polygon fill="#ffffff" stroke="black" points="514,-316 255,-316 255,0 514,0 514,-316"/><polygon fill="none" stroke="black" points="255.5,-293 255.5,-316 514.5,-316 514.5,-293 255.5,-293"/><text text-anchor="start" x="374" y="-300.8" font-family="arial" font-size="14.00">W1</text><polygon fill="none" stroke="black" points="255.5,-270 255.5,-293 318.5,-293 318.5,-270 255.5,-270"/><text text-anchor="start" x="270" y="-277.8" font-family="arial" font-size="14.00">cat5e</text><polygon fill="none" stroke="black" points="318.5,-270 318.5,-293 362.5,-293 362.5,-270 318.5,-270"/><text text-anchor="start" x="333" y="-277.8" font-family="arial" font-size="14.00">8x</text><polygon fill="none" stroke="black" points="362.5,-270 362.5,-293 514.5,-293 514.5,-270 362.5,-270"/><text text-anchor="start" x="376.5" y="-277.8" font-family="arial" font-size="14.00">24 AWG (0.25 mm²)</text><text text-anchor="start" x="294.5" y="-256.8" font-family="arial" font-size="14.00"> </text><text text-anchor="start" x="257.5" y="-237.8" font-family="arial" font-size="14.00">X1:1:CAN_H</text><text text-anchor="start" x="340" y="-237.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;1:WHGN &#160;&#160;&#160;</text><text text-anchor="start" x="434.5" y="-237.8" font-family="arial" font-size="14.00">X2:1:CAN_H</text><polygon fill="#000000" stroke="transparent" points="255.5,-230 255.5,-232 514.5,-232 514.5,-230 255.5,-230"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-228 255.5,-230 514.5,-230 514.5,-228 255.5,-228"/><polygon fill="#00ff00" stroke="transparent" points="255.5,-226 255.5,-228 514.5,-228 514.5,-226 255.5,-226"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-224 255.5,-226 514.5,-226 514.5,-224 255.5,-224"/><polygon fill="#000000" stroke="transparent" points="255.5,-222 255.5,-224 514.5,-224 514.5,-222 255.5,-222"/><text text-anchor="start" x="258.5" y="-208.8" font-family="arial" font-size="14.00">X1:2:CAN_L</text><text text-anchor="start" x="351.5" y="-208.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;2:GN &#160;&#160;&#160;</text><text text-anchor="start" x="435.5" y="-208.8" font-family="arial" font-size="14.00">X2:2:CAN_L</text><polygon fill="#000000" stroke="transparent" points="255.5,-201 255.5,-203 514.5,-203 514.5,-201 255.5,-201"/><polygon fill="#00ff00" stroke="transparent" points="255.5,-199 255.5,-201 514.5,-201 514.5,-199 255.5,-199"/><polygon fill="#00ff00" stroke="transparent" points="255.5,-197 255.5,-199 514.5,-199 514.5,-197 255.5,-197"/><polygon fill="#00ff00" stroke="transparent" points="255.5,-195 255.5,-197 514.5,-197 514.5,-195 255.5,-195"/><polygon fill="#000000" stroke="transparent" points="255.5,-193 255.5,-195 514.5,-195 514.5,-193 255.5,-193"/><text text-anchor="start" x="265" y="-179.8" font-family="arial" font-size="14.00">X1:3:GND</text><text text-anchor="start" x="339.5" y="-179.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;3:WHOG &#160;&#160;&#160;</text><text text-anchor="start" x="442" y="-179.8" font-family="arial" font-size="14.00">X2:3:GND</text><polygon fill="#000000" stroke="transparent" points="255.5,-172 255.5,-174 514.5,-174 514.5,-172 255.5,-172"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-170 255.5,-172 514.5,-172 514.5,-170 255.5,-170"/><polygon fill="#ff8000" stroke="transparent" points="255.5,-168 255.5,-170 514.5,-170 514.5,-168 255.5,-168"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-166 255.5,-168 514.5,-168 514.5,-166 255.5,-166"/><polygon fill="#000000" stroke="transparent" points="255.5,-164 255.5,-166 514.5,-166 514.5,-164 255.5,-164"/><text text-anchor="start" x="264.5" y="-150.8" font-family="arial" font-size="14.00">X1:4:+12V</text><text text-anchor="start" x="353" y="-150.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;4:BU &#160;&#160;&#160;</text><text text-anchor="start" x="441.5" y="-150.8" font-family="arial" font-size="14.00">X2:4:+12V</text><polygon fill="#000000" stroke="transparent" points="255.5,-143 255.5,-145 514.5,-145 514.5,-143 255.5,-143"/><polygon fill="#0066ff" stroke="transparent" points="255.5,-141 255.5,-143 514.5,-143 514.5,-141 255.5,-141"/><polygon fill="#0066ff" stroke="transparent" points="255.5,-139 255.5,-141 514.5,-141 514.5,-139 255.5,-139"/><polygon fill="#0066ff" stroke="transparent" points="255.5,-137 255.5,-139 514.5,-139 514.5,-137 255.5,-137"/><polygon fill="#000000" stroke="transparent" points="255.5,-135 255.5,-137 514.5,-137 514.5,-135 255.5,-135"/><text text-anchor="start" x="264.5" y="-121.8" font-family="arial" font-size="14.00">X1:5:+12V</text><text text-anchor="start" x="341" y="-121.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;5:WHBU &#160;&#160;&#160;</text><text text-anchor="start" x="441.5" y="-121.8" font-family="arial" font-size="14.00">X2:5:+12V</text><polygon fill="#000000" stroke="transparent" points="255.5,-114 255.5,-116 514.5,-116 514.5,-114 255.5,-114"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-112 255.5,-114 514.5,-114 514.5,-112 255.5,-112"/><polygon fill="#0066ff" stroke="transparent" points="255.5,-110 255.5,-112 514.5,-112 514.5,-110 255.5,-110"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-108 255.5,-110 514.5,-110 514.5,-108 255.5,-108"/><polygon fill="#000000" stroke="transparent" points="255.5,-106 255.5,-108 514.5,-108 514.5,-106 255.5,-106"/><text text-anchor="start" x="265" y="-92.8" font-family="arial" font-size="14.00">X1:6:GND</text><text text-anchor="start" x="351" y="-92.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;6:OG &#160;&#160;&#160;</text><text text-anchor="start" x="442" y="-92.8" font-family="arial" font-size="14.00">X2:6:GND</text><polygon fill="#000000" stroke="transparent" points="255.5,-85 255.5,-87 514.5,-87 514.5,-85 255.5,-85"/><polygon fill="#ff8000" stroke="transparent" points="255.5,-83 255.5,-85 514.5,-85 514.5,-83 255.5,-83"/><polygon fill="#ff8000" stroke="transparent" points="255.5,-81 255.5,-83 514.5,-83 514.5,-81 255.5,-81"/><polygon fill="#ff8000" stroke="transparent" points="255.5,-79 255.5,-81 514.5,-81 514.5,-79 255.5,-79"/><polygon fill="#000000" stroke="transparent" points="255.5,-77 255.5,-79 514.5,-79 514.5,-77 255.5,-77"/><text text-anchor="start" x="265" y="-63.8" font-family="arial" font-size="14.00">X1:7:GND</text><text text-anchor="start" x="341" y="-63.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;7:WHBN &#160;&#160;&#160;</text><text text-anchor="start" x="442" y="-63.8" font-family="arial" font-size="14.00">X2:7:GND</text><polygon fill="#000000" stroke="transparent" points="255.5,-56 255.5,-58 514.5,-58 514.5,-56 255.5,-56"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-54 255.5,-56 514.5,-56 514.5,-54 255.5,-54"/><polygon fill="#895956" stroke="transparent" points="255.5,-52 255.5,-54 514.5,-54 514.5,-52 255.5,-52"/><polygon fill="#ffffff" stroke="transparent" points="255.5,-50 255.5,-52 514.5,-52 514.5,-50 255.5,-50"/><polygon fill="#000000" stroke="transparent" points="255.5,-48 255.5,-50 514.5,-50 514.5,-48 255.5,-48"/><text text-anchor="start" x="264.5" y="-34.8" font-family="arial" font-size="14.00">X1:8:+12V</text><text text-anchor="start" x="353" y="-34.8" font-family="arial" font-size="14.00"> &#160;&#160;&#160;&#160;8:BN &#160;&#160;&#160;</text><text text-anchor="start" x="441.5" y="-34.8" font-family="arial" font-size="14.00">X2:8:+12V</text><polygon fill="#000000" stroke="transparent" points="255.5,-27 255.5,-29 514.5,-29 514.5,-27 255.5,-27"/><polygon fill="#895956" stroke="transparent" points="255.5,-25 255.5,-27 514.5,-27 514.5,-25 255.5,-25"/><polygon fill="#895956" stroke="transparent" points="255.5,-23 255.5,-25 514.5,-25 514.5,-23 255.5,-23"/><polygon fill="#895956" stroke="transparent" points="255.5,-21 255.5,-23 514.5,-23 514.5,-21 255.5,-21"/><polygon fill="#000000" stroke="transparent" points="255.5,-19 255.5,-21 514.5,-21 514.5,-19 255.5,-19"/><text text-anchor="start" x="294.5" y="-5.8" font-family="arial" font-size="14.00"> </text></g><!-- X1&#45;&#45;W1 --><g id="edge1" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-203C178.83,-204.62 193.6,-224.62 255,-223"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-205C177.22,-205.81 191.99,-225.81 255,-225"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M111,-207C175.61,-207 190.39,-227 255,-227"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-209C174.01,-208.19 188.78,-228.19 255,-229"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-211C172.4,-209.38 187.17,-229.38 255,-231"/></g><!-- X1&#45;&#45;W1 --><g id="edge3" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-180C177.99,-181.04 193.39,-195.04 255,-194"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M111,-182C176.65,-182.52 192.04,-196.52 255,-196"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M111,-184C175.3,-184 190.7,-198 255,-198"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M111,-186C173.96,-185.48 189.35,-199.48 255,-200"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-188C172.61,-186.96 188.01,-200.96 255,-202"/></g><!-- X1&#45;&#45;W1 --><g id="edge5" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-157C176.91,-157.43 192.71,-165.43 255,-165"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-159C176,-159.22 191.8,-167.22 255,-167"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M111,-161C175.1,-161 190.9,-169 255,-169"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-163C174.2,-162.78 190,-170.78 255,-171"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-165C173.29,-164.57 189.09,-172.57 255,-173"/></g><!-- X1&#45;&#45;W1 --><g id="edge7" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-133C175.75,-133.07 191.72,-136.07 255,-136"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M111,-135C175.38,-135.03 191.36,-138.03 255,-138"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M111,-137C175.01,-137 190.99,-140 255,-140"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M111,-139C174.64,-138.97 190.62,-141.97 255,-142"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-141C174.28,-140.93 190.25,-143.93 255,-144"/></g><!-- X1&#45;&#45;W1 --><g id="edge9" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-110C174.28,-110.07 190.25,-107.07 255,-107"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-112C174.64,-112.03 190.62,-109.03 255,-109"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M111,-114C175.01,-114 190.99,-111 255,-111"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-116C175.38,-115.97 191.36,-112.97 255,-113"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-118C175.75,-117.93 191.72,-114.93 255,-115"/></g><!-- X1&#45;&#45;W1 --><g id="edge11" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-87C173.14,-87.53 188.89,-78.53 255,-78"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M111,-89C174.13,-89.26 189.88,-80.26 255,-80"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M111,-91C175.12,-91 190.88,-82 255,-82"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M111,-93C176.12,-92.74 191.87,-83.74 255,-84"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-95C177.11,-94.47 192.86,-85.47 255,-86"/></g><!-- X1&#45;&#45;W1 --><g id="edge13" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-64C172.55,-65.14 187.85,-50.14 255,-49"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-66C173.95,-66.57 189.25,-51.57 255,-51"/><path fill="none" stroke="#895956" stroke-width="2" d="M111,-68C175.35,-68 190.65,-53 255,-53"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M111,-70C176.75,-69.43 192.05,-54.43 255,-55"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-72C178.15,-70.86 193.45,-55.86 255,-57"/></g><!-- X1&#45;&#45;W1 --><g id="edge15" class="edge"><title>X1:e&#45;&#45;W1:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M111,-41C172.4,-42.71 187.04,-21.71 255,-20"/><path fill="none" stroke="#895956" stroke-width="2" d="M111,-43C174.04,-43.86 188.68,-22.86 255,-22"/><path fill="none" stroke="#895956" stroke-width="2" d="M111,-45C175.68,-45 190.32,-24 255,-24"/><path fill="none" stroke="#895956" stroke-width="2" d="M111,-47C177.32,-46.14 191.96,-25.14 255,-26"/><path fill="none" stroke="#000000" stroke-width="2" d="M111,-49C178.96,-47.29 193.6,-26.29 255,-28"/></g><!-- X2 --><g id="node2" class="node"><title>X2</title><polygon fill="#ffffff" stroke="black" points="769,-264 658,-264 658,-34 769,-34 769,-264"/><polygon fill="none" stroke="black" points="658.5,-241 658.5,-264 769.5,-264 769.5,-241 658.5,-241"/><text text-anchor="start" x="705.5" y="-248.8" font-family="arial" font-size="14.00">X2</text><polygon fill="none" stroke="black" points="658.5,-218 658.5,-241 696.5,-241 696.5,-218 658.5,-218"/><text text-anchor="start" x="662.5" y="-225.8" font-family="arial" font-size="14.00">8p8c</text><polygon fill="none" stroke="black" points="696.5,-218 696.5,-241 730.5,-241 730.5,-218 696.5,-218"/><text text-anchor="start" x="700.5" y="-225.8" font-family="arial" font-size="14.00">plug</text><polygon fill="none" stroke="black" points="730.5,-218 730.5,-241 769.5,-241 769.5,-218 730.5,-218"/><text text-anchor="start" x="734.5" y="-225.8" font-family="arial" font-size="14.00">8&#45;pin</text><polygon fill="none" stroke="black" points="658.5,-195 658.5,-218 695.5,-218 695.5,-195 658.5,-195"/><text text-anchor="start" x="673" y="-202.8" font-family="arial" font-size="14.00">1</text><polygon fill="none" stroke="black" points="695.5,-195 695.5,-218 769.5,-218 769.5,-195 695.5,-195"/><text text-anchor="start" x="709.5" y="-202.8" font-family="arial" font-size="14.00">CAN_H</text><polygon fill="none" stroke="black" points="658.5,-172 658.5,-195 695.5,-195 695.5,-172 658.5,-172"/><text text-anchor="start" x="673" y="-179.8" font-family="arial" font-size="14.00">2</text><polygon fill="none" stroke="black" points="695.5,-172 695.5,-195 769.5,-195 769.5,-172 695.5,-172"/><text text-anchor="start" x="710.5" y="-179.8" font-family="arial" font-size="14.00">CAN_L</text><polygon fill="none" stroke="black" points="658.5,-149 658.5,-172 695.5,-172 695.5,-149 658.5,-149"/><text text-anchor="start" x="673" y="-156.8" font-family="arial" font-size="14.00">3</text><polygon fill="none" stroke="black" points="695.5,-149 695.5,-172 769.5,-172 769.5,-149 695.5,-149"/><text text-anchor="start" x="717" y="-156.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="658.5,-126 658.5,-149 695.5,-149 695.5,-126 658.5,-126"/><text text-anchor="start" x="673" y="-133.8" font-family="arial" font-size="14.00">4</text><polygon fill="none" stroke="black" points="695.5,-126 695.5,-149 769.5,-149 769.5,-126 695.5,-126"/><text text-anchor="start" x="716" y="-133.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="658.5,-103 658.5,-126 695.5,-126 695.5,-103 658.5,-103"/><text text-anchor="start" x="673" y="-110.8" font-family="arial" font-size="14.00">5</text><polygon fill="none" stroke="black" points="695.5,-103 695.5,-126 769.5,-126 769.5,-103 695.5,-103"/><text text-anchor="start" x="716" y="-110.8" font-family="arial" font-size="14.00">+12V</text><polygon fill="none" stroke="black" points="658.5,-80 658.5,-103 695.5,-103 695.5,-80 658.5,-80"/><text text-anchor="start" x="673" y="-87.8" font-family="arial" font-size="14.00">6</text><polygon fill="none" stroke="black" points="695.5,-80 695.5,-103 769.5,-103 769.5,-80 695.5,-80"/><text text-anchor="start" x="717" y="-87.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="658.5,-57 658.5,-80 695.5,-80 695.5,-57 658.5,-57"/><text text-anchor="start" x="673" y="-64.8" font-family="arial" font-size="14.00">7</text><polygon fill="none" stroke="black" points="695.5,-57 695.5,-80 769.5,-80 769.5,-57 695.5,-57"/><text text-anchor="start" x="717" y="-64.8" font-family="arial" font-size="14.00">GND</text><polygon fill="none" stroke="black" points="658.5,-34 658.5,-57 695.5,-57 695.5,-34 658.5,-34"/><text text-anchor="start" x="673" y="-41.8" font-family="arial" font-size="14.00">8</text><polygon fill="none" stroke="black" points="695.5,-34 695.5,-57 769.5,-57 769.5,-34 695.5,-34"/><text text-anchor="start" x="716" y="-41.8" font-family="arial" font-size="14.00">+12V</text></g><!-- W1&#45;&#45;X2 --><g id="edge2" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-223C575.4,-224.62 590.17,-204.62 658,-203"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-225C577.01,-225.81 591.78,-205.81 658,-205"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M514,-227C578.61,-227 593.39,-207 658,-207"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-229C580.22,-228.19 594.99,-208.19 658,-209"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-231C581.83,-229.38 596.6,-209.38 658,-211"/></g><!-- W1&#45;&#45;X2 --><g id="edge4" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-194C575.61,-195.04 591.01,-181.04 658,-180"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M514,-196C576.96,-196.52 592.35,-182.52 658,-182"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M514,-198C578.3,-198 593.7,-184 658,-184"/><path fill="none" stroke="#00ff00" stroke-width="2" d="M514,-200C579.65,-199.48 595.04,-185.48 658,-186"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-202C580.99,-200.96 596.39,-186.96 658,-188"/></g><!-- W1&#45;&#45;X2 --><g id="edge6" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-165C576.29,-165.43 592.09,-157.43 658,-157"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-167C577.2,-167.22 593,-159.22 658,-159"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M514,-169C578.1,-169 593.9,-161 658,-161"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-171C579,-170.78 594.8,-162.78 658,-163"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-173C579.91,-172.57 595.71,-164.57 658,-165"/></g><!-- W1&#45;&#45;X2 --><g id="edge8" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-136C577.28,-136.07 593.25,-133.07 658,-133"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M514,-138C577.64,-138.03 593.62,-135.03 658,-135"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M514,-140C578.01,-140 593.99,-137 658,-137"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M514,-142C578.38,-141.97 594.36,-138.97 658,-139"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-144C578.75,-143.93 594.72,-140.93 658,-141"/></g><!-- W1&#45;&#45;X2 --><g id="edge10" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-107C578.75,-107.07 594.72,-110.07 658,-110"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-109C578.38,-109.03 594.36,-112.03 658,-112"/><path fill="none" stroke="#0066ff" stroke-width="2" d="M514,-111C578.01,-111 593.99,-114 658,-114"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-113C577.64,-112.97 593.62,-115.97 658,-116"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-115C577.28,-114.93 593.25,-117.93 658,-118"/></g><!-- W1&#45;&#45;X2 --><g id="edge12" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-78C580.11,-78.53 595.86,-87.53 658,-87"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M514,-80C579.12,-80.26 594.87,-89.26 658,-89"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M514,-82C578.12,-82 593.88,-91 658,-91"/><path fill="none" stroke="#ff8000" stroke-width="2" d="M514,-84C577.13,-83.74 592.88,-92.74 658,-93"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-86C576.14,-85.47 591.89,-94.47 658,-95"/></g><!-- W1&#45;&#45;X2 --><g id="edge14" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-49C581.15,-50.14 596.45,-65.14 658,-64"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-51C579.75,-51.57 595.05,-66.57 658,-66"/><path fill="none" stroke="#895956" stroke-width="2" d="M514,-53C578.35,-53 593.65,-68 658,-68"/><path fill="none" stroke="#ffffff" stroke-width="2" d="M514,-55C576.95,-54.43 592.25,-69.43 658,-70"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-57C575.55,-55.86 590.85,-70.86 658,-72"/></g><!-- W1&#45;&#45;X2 --><g id="edge16" class="edge"><title>W1:e&#45;&#45;X2:w</title><path fill="none" stroke="#000000" stroke-width="2" d="M514,-20C581.96,-21.71 596.6,-42.71 658,-41"/><path fill="none" stroke="#895956" stroke-width="2" d="M514,-22C580.32,-22.86 594.96,-43.86 658,-43"/><path fill="none" stroke="#895956" stroke-width="2" d="M514,-24C578.68,-24 593.32,-45 658,-45"/><path fill="none" stroke="#895956" stroke-width="2" d="M514,-26C577.04,-25.14 591.68,-46.14 658,-47"/><path fill="none" stroke="#000000" stroke-width="2" d="M514,-28C575.4,-26.29 590.04,-47.29 658,-49"/></g></g></svg></p>
+<h1 id="power-handling">Power Handling</h1>
+<div class="admonition info inline end">
+<p class="admonition-title">Voltage Smoltage</p>
+<p>I haven't actually settled on the voltage to use on the cabling. For
+now, I am using +12V, but moving up to +48V would (basically)
+quadruple the available power without requiring any additional
+copper. It does, however, somewhat complicate the individual device
+power supplies.</p>
+</div>
+<p>At this point, I'm planning to run +12V across the cable to allow for
+most things to be powered off the central device. Given I use solid
+rather than stranded cables, we can the <a href="https://www.engineeringtoolbox.com/wire-gauges-d_419.html">standard AWG wire
+gauge</a>
+ratings of 3.5A on a 24 AWG single-core wire.</p>
+<p>Now we can't do the math quite yet, as we need to
+<a href="https://en.wikipedia.org/wiki/Derating">derate</a> the wire based on two
+different factors, according to the
+<a href="https://en.wikipedia.org/wiki/National_Electrical_Code">NEC</a>:</p>
+<ol>
+<li>Ambient operating temperature</li>
+<li>More than 3 wires in a cable</li>
+</ol>
+<p>So, if we do the math for operating at 40C (104F), and with the 3 power
+carrying conductors in the cable, we get derating factors of 0.88 and
+0.80 respectively. So...</p>
+<div class="arithmatex">\[\begin{align}
+P &amp;= 3 (3.5A \times 0.88 \times 0.80) \\
+  &amp;= 3 (2.464) \\
+  &amp;= 7.392A
+\end{align}
+\]</div>
+<p>So that means we can do 7.392 * 12 = 88.7W of power on the cable. <em>But
+there's a catch</em>. The current most advanced power-over-ethernet (PoE)
+standard, IEEE 802.3bt-2018, says that each <em>pair of conductors</em> is
+designed to handle 960mA, which would actually put us at (generously!)
+960 &times; 2 or 1.92A, or 23W at 12V.</p>
+<p>This is the reason I'm thinking of switching to driving the cable with
+48V, which would let me move up to 92W, which is about what the standard
+allows. So, perhaps I will change to a 48V distribution, which will
+require something like an <a href="https://www.ti.com/product/LM5576">LM5576</a>. </p>
+<p>We'll burn that bridge when we come to it.</p>
+<h2 id="quick-note-about-diagrams">Quick Note About Diagrams</h2>
+<p>The diagrams above were done with an amazing tool called
+<a href="https://github.com/wireviz/WireViz/">Wireviz</a>, and embedded into the
+MkDocs site you're reading using a little hacky <a href="https://github.com/petrilli/wireviz_fences">Markdown extension I
+wrote</a>. </p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2024 Christopher Petrilli
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "header.autohide"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

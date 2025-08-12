@@ -1,0 +1,980 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A wildly over-engineered home automation project">
+      
+      
+        <meta name="author" content="Christopher Petrilli">
+      
+      
+      
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>Project - HAUSRACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Fathom - beautiful, simple website analytics -->
+<script src="https://cdn.usefathom.com/script.js" data-site="ZIPCWPRA" defer></script>
+<!-- / Fathom -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <link rel="alternate" type="application/rss+xml" title="Subscribe to Changes" href="/feed_rss_updated.xml" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#project" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="HAUSRACK" class="md-header__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAUSRACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Project
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../design/" class="md-tabs__link">
+        
+  
+    
+  
+  Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../software/" class="md-tabs__link">
+        
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link">
+        
+  
+    
+  
+  Project Updates
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../CHANGELOG/" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="HAUSRACK" class="md-nav__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    HAUSRACK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/mechanical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/wiring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/datasheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datasheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        <h1 id="project">Project</h1>
+      </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/petrilli.png" alt="Christopher Petrilli">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-05-01 00:00:00">May 1, 2024</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Project</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              8 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="willkommen-bienvenue-welcome-cmon-in"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/">Willkommen. Bienvenue. Welcome. C'mon in.</a></h2>
+<p>I'm going to try and do something new with this project, and that's to
+document the messy convoluted process that my brain goes through to do
+<em>anything</em>. Historically, I've largely kept that all to myself, and not
+surfaced anything until the end, if even then. </p>
+<h3 id="inspiration"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#inspiration">Inspiration</a></h3>
+<p>The inspiration for this project was a post on Hackaday, which I can no
+longer find, which pointed to <a href="https://hackaday.io/project/195534-kha">this
+project</a>, which was a wildly
+over-engineered home automation project based around 19"
+<a href="https://blog.nvent.com/7-tips-for-selecting-a-subrack/">subrack</a> and a
+custom protocol built on top of
+<a href="https://en.wikipedia.org/wiki/RS-485">RS-485</a>. You can find the <a href="https://github.com/kiu/kha">full
+project on GitHub</a>, and there's even an
+amazing <a href="https://www.youtube.com/watch?v=BUSnTUGKZzc">deep dive YouTube
+video</a></p>
+<p>The absurd over-engineering really appealed to me as a project to
+tackle, and a way to push my embedded hardware and software skills way
+further than I have historically. I cannot emphasize enough just how
+much I've been inspired by their work. Some things I've lifted nearly
+wholesale are:</p>
+<ul>
+<li>Leveraging a subrack. This gives a physical structure to the system,
+  but also lets me build a backplane-based system as well. </li>
+<li><a href="https://en.wikipedia.org/wiki/Eurocard_(printed_circuit_board)">Eurocard</a>
+  sized modules, and use of the <a href="https://en.wikipedia.org/wiki/DIN_41612">DIN
+  41612</a>-style connectors.</li>
+<li>Doubling up the connector pins to simplify the backplane routing. This
+  means that both the <code>a</code> and <code>b</code> rows are the same signal, allowing for
+  a straight line bus.</li>
+<li>Leveraging
+  <a href="https://en.wikipedia.org/wiki/Modular_connector#8P8C">8P8C</a> for
+  connectors on the network.</li>
+<li>Designing a main Eurocard base for a vast majority of the work. The
+  idea of having a single PCB that can be adapted to a bunch of
+  different uses is very appealing</li>
+<li>Putting power for the backplane <a href="https://github.com/kiu/kha/tree/main/kha-bgt-misc/kha-bgt-pwr">into a
+  slot</a>.</li>
+<li>Leaning into a specific "vibe" for everything that has a bit of an
+  alternate timeline feel to it.</li>
+</ul>
+<p>There's also <a href="https://hackaday.io/project/14862-diy-scada-smart-home">this
+project</a> that
+applies <a href="https://en.wikipedia.org/wiki/SCADA">SCADA</a> to the situation,
+but this just didn't "vibe" with me as an approach. </p>
+<h3 id="goals"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#goals">Goals</a></h3>
+<p>When it comes down to it, I have absolutely no <em>need</em> for this project.
+It doesn't solve a gap in my life, as I have
+<a href="https://en.wikipedia.org/wiki/HomeKit">HomeKit</a> for a lot of things.
+Instead, I have a few goals with the project:</p>
+<ol>
+<li>Learn. This is the #1 goal by a wide margin. So what do I want to
+   learn?</li>
+<li>Designing with modern surface-mount technology, and that includes
+     working with fine-pitch packages, tiny (0402) passives, and various
+     <a href="https://en.wikipedia.org/wiki/Flat_no-leads_package">leadless</a>
+     packages.<ul>
+<li>Build some understanding of modern power supply systems, such as
+  <a href="https://www.analog.com/en/resources/technical-articles/switch-mode-power-supply-basics.html">switch mode power
+  supplies</a>. </li>
+<li>Dig into modern embedded frameworks. </li>
+<li>Push my ability to do the full integration from top to bottom of a
+  project. </li>
+<li>How to design seriously resource constrained protocols.</li>
+</ul>
+</li>
+<li>Build something silly and a bit absurd. Nobody needs this, so lets
+   have some fun.</li>
+</ol>
+<p>In addition, there's some stretch goals/features I hope to (eventually)
+explore:</p>
+<ul>
+<li>A mechanism to do updates across all the nodes with a single
+  experience. Thinking about how I might use CAN to update the firmware
+  on everything, perhaps when a USB drive with the proper data in the
+  proper structure is inserted. This will be non-trivial, but also I'm
+  going to skip the insane security complexity because this is not a
+  thing on the Internet. If that ever changes, then that consideration
+  will have to change. <a href="https://docs.mcuboot.com">mcuboot</a> offers some
+  capabilities here that I hope to leverage.</li>
+<li>Integrating WiFi for a needlessly complicated time source. This will
+  likely be done using an ESP32 series module as an co-processor.</li>
+<li>Integrate self-monitoring/analysis into the designs. This would allow
+  the MCU to also check everything about itself. Perhaps using an analog
+  switch like the <a href="https://www.ti.com/product/CD74HC4067">74HC4067</a>
+  connected to the ADC within the MCU, and a digital power monitor, like
+  the <a href="https://www.ti.com/amplifier-circuit/current-sense/digital-power-monitors/overview.html">INA
+  series</a>
+  from TI. This is inspired by how a lot of test equipment can verify
+  its own function.</li>
+</ul>
+<h3 id="decisions-so-far"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#decisions-so-far">Decisions So Far</a></h3>
+<p>Part of the process of getting started for me is doing a ton of research
+and then making some critical decisions that shape the project's overall
+strategy.  </p>
+<h4 id="eurocardsubrackbackplane-structure"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#eurocardsubrackbackplane-structure">Eurocard/Subrack/Backplane Structure</a></h4>
+<div class="admonition info inline end">
+<p class="admonition-title">A Rant About Standards</p>
+<p>One of the most exhausting parts of doing this project has been
+trying to find the international standards that I've mentioned. I've
+been fortunate through some search-fu to find copies of the PDFs
+that are typically very expensive. Go support <a href="https://public.resource.org">Carl
+Malamud</a> and the fundamental work he's
+doing to make law and standards more accessible.</p>
+</div>
+<p>I really like this decision in the inspiration project. I had been
+thinking about building a modular sensor system in this format, and this
+gave me a better idea to work with in this case. I'm intending to use a
+3U (133mm, 5.3") subrack, and am exploring a couple of different widths.
+The standard width (19", but also called 84HP) is the easiest to get,
+but it's a bit large for what I'm trying to do. I'm also planning to use
+a 175mm (6.89") standardized depth because this isn't that deep for home
+use, and doesn't necessarily require it to be put into a physical rack
+(which I don't have space for).</p>
+<p>Fortunately, subrack products aren't particularly expensive, and I've
+been 3d printing mock-ups to explore the physical form factor better.</p>
+<p>For the cards themselves, I'm intending to use the base Eurocard
+specification, which is 100x160mm. I'm trying to figure out if it's
+possible to move to the 100mm depth, which would both result in a
+smaller footprint, but also fit within the "cheap" sizes for most of the
+Chinese PCB manufacturers, which would reduce the cost overall.</p>
+<p><img align="right" alt="A DIN 41612 rectangular backplane connector with 2 rows of 32 contacts
+each" src="https://b2b.harting.com/files/epim/daten/Archiv/Image/2022/8/19/0902264X824_20220819_155837155/0902264X824_20220819_155837155_L.jpg" width="250" /></p>
+<p>For the backplane, I'm using
+<a href="https://en.wikipedia.org/wiki/VMEbus">VMEbus</a> for mechanical
+inspiration, but have designed my own signaling assignments because I'm
+not building a general purpose bus, but one designed for very specific
+purposes that benefits from decades of changes in the microcontroller
+ecosystem. The connectors will be type B DIN 41612 with 64 contacts in 2
+rows. The <a href="https://b2b.harting.com/ebusiness/en_us/DIN-Signal-B064FS-45C1-2/09022646825?newPDP=true">Harting
+part</a>
+is shown to the right. The connectors also have a 2A per contact current
+carrying capacity, which means they can be used to cary a decent amount
+of power.</p>
+<h4 id="stm32-microcontrollers"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#stm32-microcontrollers">STM32 Microcontrollers</a></h4>
+<p>kha is built on the
+<a href="https://www.microchip.com/en-us/products/microcontrollers-and-microprocessors/8-bit-mcus/avr-mcus">AVR</a>
+microcontroller ecosystem. This is a very well regarded 8-bit MCU
+platform that has been around for quite some time. It's widely used in
+hobbyist and embedded projects. That would be a great choice, but I
+decided to go with the ubiquitous STM32 series of ARM-based
+microcontrollers. You might know them from the Blue Pill and Black Pill
+boards. ST has a bewilderingly broad product set to work from, and have
+a competitive price point for something with wildly more capability. </p>
+<p>I've settled on exploring 3 different chips:</p>
+<table>
+<thead>
+<tr>
+<th>Chip</th>
+<th>Core</th>
+<th>Flash</th>
+<th>RAM</th>
+<th>CAN</th>
+<th style="text-align: right;">Price (25 unit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32g0b1re.html">STM32G0B1RE</a></td>
+<td>M0+ @ 64Mhz</td>
+<td>256Kb</td>
+<td>144Kb</td>
+<td>2 x CAN-FD</td>
+<td style="text-align: right;">$5.5140</td>
+</tr>
+<tr>
+<td><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32f072rb.html">STM32F072RB</a></td>
+<td>M0  @ 48MHz</td>
+<td>128Kb</td>
+<td>16Kb</td>
+<td>1 x CAN</td>
+<td style="text-align: right;">$4.8544</td>
+</tr>
+<tr>
+<td><a href="https://www.st.com/en/microcontrollers-microprocessors/stm32h503rb.html">STM32H503RB</a></td>
+<td>M33 @ 250MHz</td>
+<td>128Kb</td>
+<td>32Kb</td>
+<td>1 x CAN-FD</td>
+<td style="text-align: right;">$3.3728</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see they're all over the place. The H5 series is by far the
+fastest one, and the cheapest, which is <em>curious</em>. I've picked up
+<a href="https://www.st.com/en/evaluation-tools/stm32-nucleo-boards.html">Nucleo</a>
+dev boards to start exploring. </p>
+<p>While I'm going to be designing my own boards, I intend to leverage the
+Nucleo board schematics as a starting point for best-practices. <em>This is
+a good thing</em>.</p>
+<h4 id="can-bus"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#can-bus">CAN Bus</a></h4>
+<p>The first area where I've deviated from my inspiration is I intend to
+use <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN</a> (and potentially
+<a href="https://en.wikipedia.org/wiki/CAN_FD">CAN-FD</a>). I've been working with
+CAN some in the robotics space, and it has a lot of nice capabilities.
+The inspiration used RS-485 (which is another great choice), but this
+also required them to implement a lot of low-level protocol capabilities
+that come for free with CAN.</p>
+<p>One of the open questions is whether to use another abstraction on top
+of CAN. If I use "regular" CAN, there's only 8 bytes available in each
+packet. That may be plenty. CAN-FD allows 64 bytes. But there are other
+options that can extend that to nearly limitless. Some options are:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/CANopen">CANopen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ISO_15765-2">ISO-TP</a></li>
+</ul>
+<p>These come with higher-level abstractions, but I think they might just
+be too much for this specific case. I think, given the use case, 8 bytes
+is probably plenty.</p>
+<h4 id="zephyr"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#zephyr">Zephyr</a></h4>
+<p>I struggled with the framework to build all the software in. I've done a
+bunch of things, quite successfully, with
+<a href="https://www.arduino.cc">Arduino</a>, but I felt like I needed to stretch
+my skills, and work in something a bit more robust. I initially thought
+about using <a href="http://freertos.org">FreeRTOS</a> along with ST's
+<a href="https://www.st.com/en/ecosystems/stm32cube.html">STM32Cube</a> software,
+but I'll be honest... Eclipse gives me hives. </p>
+<p>So, after looking at <a href="http://threadx.io">ThreadX</a>, and a few others, I
+decided to build on top of <a href="https://zephyrproject.org">Zephyr</a> for a
+couple reasons:</p>
+<ol>
+<li>Huge board and chip support, and it's well supported by the vendors
+   as well, and not just hobbyists.</li>
+<li>Gigantic (although nowhere near Arduino scale) ecosystem of modules
+   and code. </li>
+<li>Excellent high-level primitives to build on top of, such as robust
+   threading and IPC support, network stacks, <a href="https://docs.zephyrproject.org/latest/hardware/peripherals/sensor.html">sensor
+   framework</a>,
+   and numerous other modern components.</li>
+<li>Even comes with things like a built in robust <a href="https://docs.zephyrproject.org/latest/services/shell/index.html">shell
+   capability</a>.</li>
+</ol>
+<p>I have had a bit of a challenge wrapping my head around the
+<a href="https://docs.zephyrproject.org/latest/develop/west/workspaces.html">workspace</a>
+concept they use, but I've, I think, gotten past that now. I still don't
+have development working on my Windows machine, and I'd like to be able
+to use any platform to develop.</p>
+<h3 id="where-i-am-today"><a class="toclink" href="../../2024/05/01/willkommen-bienvenue-welcome-cmon-in/#where-i-am-today">Where I Am Today</a></h3>
+<p>I am very early. I have:</p>
+<ul>
+<li>Acquired a few test boards and CAN transceivers to work with before I
+  commit to any specific PCB design.</li>
+<li>Designed a breakout board for the Nucleo format to get IO onto <a href="https://www.jst.com/products/crimp-style-connectors-wire-to-board-type/ph-connector/">JST
+  PH</a>
+  connectors. </li>
+<li>Designed an initial 7-slot backplane to work with. This is subject to
+  change in the future, and I'll need a bigger one for the full size
+  project, but this is a good start.</li>
+<li>Designed a bunch of reusable schematic components that will show up
+  all over the place.</li>
+<li>Built a few toy applications in Zephyr to try and better understand
+  both the APIs, but also the odd build infrastructure that they use.
+  I still haven't gotten it working with my Windows 11 desktop, but it
+  works fine on my MacBook. </li>
+<li>Designed an initial switch mode power supply around the
+  <a href="https://www.ti.com/product/TPS566238">TPS566238</a> controller chip.
+  Simulations say this should hit 95% efficiency, if not a bit above
+  that. But, it's a dumb package, a 3x2mm VQFN. I have a backup design
+  I've worked out built around the
+  <a href="https://www.ti.com/product/TPS566242/part-details/TPS566242DRLR">TPS566242</a>,
+  which comes in a marginally "better" SOT-53 package, with efficiency
+  targeted around 92%. Fortunately, the passives are all the same
+  between the two, just arranged slightly differently. This will be used
+  to regulate the 12V backplane voltage to 5V for distribution along
+  side. The individual boards will regulate down to their 3.3V as
+  needed, leveraging an
+  <a href="https://www.diodes.com/part/view/AP2112/">AP2113K-3.3</a> low dropout
+  (LDO) linear regulator.</li>
+<li>Figured out a bunch of initial connector pin outs.</li>
+<li>Figured out an initial minimal protocol for communications.</li>
+</ul>
+<p>Right now, these aren't in the repository, but over the next few days,
+I'll be moving them into here.</p>
+<p>So, there's the big messy start to this adventure.</p>
+    
+  </div>
+</article>
+      
+      
+        
+          
+
+
+
+<nav class="md-pagination">
+  
+</nav>
+        
+      
+    </div>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2024 Christopher Petrilli
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "header.autohide"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

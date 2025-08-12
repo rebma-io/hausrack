@@ -1,0 +1,1088 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A wildly over-engineered home automation project">
+      
+      
+        <meta name="author" content="Christopher Petrilli">
+      
+      
+      
+        <link rel="prev" href="../../01/willkommen-bienvenue-welcome-cmon-in/">
+      
+      
+        <link rel="next" href="../../03/can-on-8p8c-connectors/">
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS feed of updated content" href="../../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>A Bus is a Bus, Of Course, Of Course - HAUSRACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Sans";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  <!-- Fathom - beautiful, simple website analytics -->
+<script src="https://cdn.usefathom.com/script.js" data-site="ZIPCWPRA" defer></script>
+<!-- / Fathom -->
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  <link rel="alternate" type="application/rss+xml" title="Subscribe to Changes" href="/feed_rss_updated.xml" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#a-bus-is-a-bus-of-course-of-course" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="HAUSRACK" class="md-header__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HAUSRACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A Bus is a Bus, Of Course, Of Course
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../design/" class="md-tabs__link">
+        
+  
+    
+  
+  Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../../hardware/" class="md-tabs__link">
+          
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../software/" class="md-tabs__link">
+        
+  
+    
+  
+  Software
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../../../../" class="md-tabs__link">
+        
+  
+    
+  
+  Project Updates
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../../CHANGELOG/" class="md-tabs__link">
+        
+  
+    
+  
+  Changelog
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="HAUSRACK" class="md-nav__button md-logo" aria-label="HAUSRACK" data-md-component="logo">
+      
+  <img src="../../../../../hausrack-logo.png" alt="logo">
+
+    </a>
+    HAUSRACK
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rebma-io/hausrack" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rebma-io/hausrack
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Hardware
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/mechanical/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/wiring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Wiring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../hardware/datasheets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Datasheets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      <a href="../../../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../CHANGELOG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Changelog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Principles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#physical-connector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical Connector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signal-assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Signal Assignment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#power-capacity-and-derating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Power Capacity and Derating
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pcb-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      PCB Layout
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="../../../../" class="md-nav__link">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+                  <span class="md-ellipsis">
+                    Back to index
+                  </span>
+                </a>
+              </div>
+            </div>
+            
+              <div class="md-post__authors md-typeset">
+                
+                  <div class="md-profile md-post__profile">
+                    <span class="md-author md-author--long">
+                      <img src="https://github.com/petrilli.png" alt="Christopher Petrilli">
+                    </span>
+                    <span class="md-profile__description">
+                      <strong>
+                        
+                          Christopher Petrilli
+                        
+                      </strong>
+                      <br>
+                      Creator
+                    </span>
+                  </div>
+                
+              </div>
+            
+            <ul class="md-post__meta md-nav__list">
+              <li class="md-nav__item md-nav__item--section">
+                <div class="md-post__title">
+                  <span class="md-ellipsis">
+                    Metadata
+                  </span>
+                </div>
+                <nav class="md-nav">
+                  <ul class="md-nav__list">
+                    <li class="md-nav__item">
+                      <div class="md-nav__link">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5v-5Z"/></svg>
+                        <time datetime="2024-05-02 00:00:00" class="md-ellipsis">May 2, 2024</time>
+                      </div>
+                    </li>
+                    
+                    
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3H9m3 2 4 13 3-1-4-13-3 1M5 5v13h3V5H5M3 19v2h18v-2H3Z"/></svg>
+                          <span class="md-ellipsis">
+                            in
+                            
+                              <a href="../../../../category/hardware/">Hardware</a></span>
+                        </div>
+                      </li>
+                    
+                    
+                      
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5Z"/></svg>
+                          <span class="md-ellipsis">
+                            
+                              5 min read
+                            
+                          </span>
+                        </div>
+                      </li>
+                    
+                  </ul>
+                </nav>
+              </li>
+            </ul>
+          </nav>
+          
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      
+        
+
+  
+  
+
+
+<h1 id="a-bus-is-a-bus-of-course-of-course">A Bus is a Bus, Of Course, Of Course</h1>
+<p>One of the defining features of the project is using a modular backplane
+in a subrack enclosure. I figured we can dive into some of the details
+so far.</p>
+<h2 id="design-principles">Design Principles</h2>
+<p>When I was looking at how <a href="https://github.com/kiu/kha/">kha</a> structured
+the bus, I decided to pull a few ideas from what they did:</p>
+<ol>
+<li>Leverage DIN 41612 for the physical format of the bus. This is a very
+   well understood and documented specification, and it has been
+   battle-tested over many decades.</li>
+<li>Simplify the backplane routing requirement.</li>
+<li>Carry both +12V and +5V. Can be locally regulated down to the needed
+   voltage.</li>
+</ol>
+<h2 id="physical-connector">Physical Connector</h2>
+<p>I decided to use the DIN 41612 connector because it is an absolute tank.
+It has been used, at least, since the late 1980s in dozens and dozens of
+critical systems. It's also relatively inexpensive and not very finicky
+to work with.</p>
+<p><img alt="View of the connector" src="../../../../img/din41612-3d-projection.png" /></p>
+<p><img align="left" alt="Diagram showing a straight receptacle and a right-angle
+plug" src="../../../../img/din41612-type-b.png" width="100" /></p>
+<p>While kha used a 32-pin connector (2 rows of 16 pins), I've decided to
+use a 64-pin connector. The reason is that this allows me to run many
+more ground lines across the connector, and also double up the power. I
+am using the DIN 41612 connector in it's type B configuration. This
+means it has 2 rows of pins/contacts, labeled "a" and "b". The numbering
+scheme is basically A1/B1-A32/B32. </p>
+<p>There are many other arrangements that are used in other systems, and
+many have 3 or 4 rows, but this is far more than enough for this setup.
+It also keeps it from even starting to look like
+<a href="https://en.wikipedia.org/wiki/VMEbus">VMEbus</a>, which uses a 3 row
+96-pin version.</p>
+<p><img alt="Pin numbering on a DIN 41612" src="../../../../img/din41612-contact-arrangement.png" /></p>
+<p>In the type B configuration, the receptacle (female) connector is on the
+backplane and the plug (male) is on the card at a right angle. While you
+can get connectors reversed, I didn't see any reason to deviate from
+this arrangement.</p>
+<p>The connectors also have 2.8mm holes for M2.5 screws that allow them to
+be <em>very securely</em> attached to the PCBs, without needing to put any
+strain on the solder joints.</p>
+<h2 id="signal-assignment">Signal Assignment</h2>
+<p>To simplify the routing enormously, I've decided to keep the "a" and "b"
+rows identical. This allows for the bus to be routed straight across the
+backplane. The "signals" can be broken down into a few groups:</p>
+<ul>
+<li>Ground</li>
+<li>Power rails, both +12V and +5V</li>
+<li>CAN bus (differential encoding)</li>
+<li>User-defined signals (BUS_*)</li>
+</ul>
+<p>This breaks down to this layout, where ground is heavily interspersed
+with the signals to help ensure reasonable signal integrity.</p>
+<table>
+<thead>
+<tr>
+<th>Pin #</th>
+<th>Row A</th>
+<th>Row B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>2</td>
+<td>+12</td>
+<td>+12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>+12</td>
+<td>+12</td>
+</tr>
+<tr>
+<td>4</td>
+<td>+5</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>+5</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>7</td>
+<td>CAN_H</td>
+<td>CAN_H</td>
+</tr>
+<tr>
+<td>8</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>9</td>
+<td>CAN_L</td>
+<td>CAN_L</td>
+</tr>
+<tr>
+<td>10</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>11</td>
+<td>BUS_00</td>
+<td>BUS_00</td>
+</tr>
+<tr>
+<td>12</td>
+<td>BUS_01</td>
+<td>BUS_01</td>
+</tr>
+<tr>
+<td>13</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>14</td>
+<td>BUS_02</td>
+<td>BUS_02</td>
+</tr>
+<tr>
+<td>15</td>
+<td>BUS_03</td>
+<td>BUS_03</td>
+</tr>
+<tr>
+<td>16</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>17</td>
+<td>BUS_04</td>
+<td>BUS_04</td>
+</tr>
+<tr>
+<td>18</td>
+<td>BUS_05</td>
+<td>BUS_05</td>
+</tr>
+<tr>
+<td>19</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>20</td>
+<td>BUS_06</td>
+<td>BUS_06</td>
+</tr>
+<tr>
+<td>21</td>
+<td>BUS_07</td>
+<td>BUS_07</td>
+</tr>
+<tr>
+<td>22</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>23</td>
+<td>BUS_08</td>
+<td>BUS_08</td>
+</tr>
+<tr>
+<td>24</td>
+<td>BUS_09</td>
+<td>BUS_09</td>
+</tr>
+<tr>
+<td>25</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>26</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>27</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>28</td>
+<td>+5</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>29</td>
+<td>+5</td>
+<td>+5</td>
+</tr>
+<tr>
+<td>30</td>
+<td>+12</td>
+<td>+12</td>
+</tr>
+<tr>
+<td>31</td>
+<td>+12</td>
+<td>+12</td>
+</tr>
+<tr>
+<td>32</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<h2 id="power-capacity-and-derating">Power Capacity and Derating</h2>
+<p>One of the things I wanted to do is be able to carry 6-8A of current on
+both the +12V and +5V rails. The standard for the connector specifies 2A
+per pin, but you also need to
+<a href="https://en.wikipedia.org/wiki/Derating">derate</a> this  number for use in
+the real-world. If we look at Harting's derating curve, we get this:</p>
+<p><img alt="A derating curve for DIN 41612 connectors from
+Harting" src="../../../../img/din41612-derating-curve.png" /></p>
+<p>Most standards talk about "room temperature" at 20C, but it's typically
+necessary to actually use a higher temperature in the real world. The
+resistance of the copper along with all the other components will raise
+the ambient temperature. If we assume 35C (95F), then we can see on the
+curve that we can expect about 1.8A. As I showed above, we are using 8
+pins per rail, which gives us a safe load capacity of 14.4A, well above
+what we are targeting. </p>
+<p>We are actually safe, for this definition of safe at least, up to 98C
+(208F), which is a temperature unlikely to occur in my house, even
+without air conditioning in Seattle.</p>
+<h2 id="pcb-layout">PCB Layout</h2>
+<p>The layout is actually pretty simple, and only needed 2 layers for the
+initial run. Depending on what signal integrity looks like, I may
+convert to 4 layers, but because I was able to keep the entire back as a
+ground, basically, I have reasonable confidence. The top of the board
+looks like this:</p>
+<p><img alt="Top of PCB showing 7 slots" src="../../../../img/pcb-backplane-top-r1a.png" /></p>
+<p><img align="right" alt="Cliff  FCR7350 connector" src="../../../../img/connector-cliff-fcr7350.png" width="200" /></p>
+<p>You can see in the design how everything goes across horizontally, which
+means there's no need to really "route" anything creatively. The ground
+is tied together on both sides as the plated through holes connect the
+two sides.</p>
+<p>It has a 8C8P connector for CAN, two Cliff FCR7350 4mm safety banana
+jacks for +12V and test points that can be used to check power and
+signals. I also put all the signals on the silkscreen.</p>
+<p>All mechanicals are in alignment with Eurocard and VMEbus standards.</p>
+<p>You can find the <a href="https://github.com/rebma-io/hausrack/tree/main/hardware/pcb/backplane">KiCad files in GitHub</a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+  
+
+
+
+      
+    </article>
+  </div>
+
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2024 Christopher Petrilli
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "header.autohide"], "search": "../../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
